@@ -1,5 +1,5 @@
 <?php
-	verifica_permissao('editar postsda');
+	verifica_permissao('editar post');
 	$pessoas = array(
 		array(
 			'nome' => 'Davi',
