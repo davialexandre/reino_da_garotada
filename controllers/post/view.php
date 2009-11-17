@@ -1,20 +1,7 @@
 <?php
-<<<<<<< .mine
-	verifica_permissao('editar post');
+	include 'includes/posts.inc';
 	
-=======
-	verifica_permissao('editar post');
->>>>>>> .r7
-	$pessoas = array(
-		array(
-			'nome' => 'Davi',
-			'idade' => 23,
-		),
-		array(
-			'nome' => 'Karina',
-			'idade' => 23,
-		)
-	);
-	
-	exibe_view(array('pessoas' => $pessoas));
+	$post = load_post(17);
+	$post['corpo'] = nl2br($post['corpo']);
+	exibe_view(array('post' => $post));
 ?>
