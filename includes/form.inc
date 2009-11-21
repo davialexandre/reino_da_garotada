@@ -427,27 +427,32 @@
 	 *  
 	 *  @param array $form
 	 *    O vetor com a configuraçao do formulario a ser exibido
+	 *    
+	 *  @param array $form_data
+	 *   Um vetor contendo os valores que serao utilizados para preencher o formulario.
+	 *   Caso nao seja informado, $_POST sera utilizado.
 	 *
 	 */
-	function fill_form(&$form) {
+	function fill_form(&$form, $form_data = null) {
+		$form_data = $form_data ? $form_data : $_POST;
 		foreach($form as $name => &$element) {
 			if(is_array($element)) {
 				if(isset($element['type'])) {
-				   if(key_exists($name, $_POST)) {
+				   if(key_exists($name, $form_data)) {
 						switch($element['type']) {
 							case 'text':
 							case 'password':
-								$element['attributes']['value'] = $_POST[$name];
+								$element['attributes']['value'] = $form_data[$name];
 								break;
 							case 'radiolist':
 							case 'dropdownlist':
-								$element['selected'] = $_POST[$name];
+								$element['selected'] = $form_data[$name];
 								break;
 							case 'checkbox':
-								$element['attributes']['checked'] = 'checked';
+								if($form_data[$name]) $element['attributes']['checked'] = 'checked';
 								break;
 							case 'textarea':
-								$element['texto'] = $_POST[$name];
+								$element['texto'] = $form_data[$name];
 								break;
 						}
 				   } else {
@@ -456,7 +461,7 @@
 						}
 				   }
 				} else {
-					fill_form($element);
+					fill_form($element, $form_data);
 				}	
 			}
 		}

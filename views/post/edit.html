@@ -16,7 +16,7 @@
 		</style>
 	</head>
 	<body>
-		<?php if($message): ?>
+		<?php if(isset($message) && $message != ''): ?>
 		<div class="message">
 			<p><?php echo $message; ?></p>
 		</div>

@@ -8,7 +8,11 @@
 	}
 	
 	function save_post($post) {
-		return db_save_record('post', $post);
+		if(isset($post['id'])) {
+			return db_update_record('post', $post, array('id' => $post['id']));
+		} else {
+			return db_save_record('post', $post);	
+		}
 	}
 	
 ?>

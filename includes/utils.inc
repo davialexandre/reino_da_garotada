@@ -1,13 +1,15 @@
 <?php
 
 	/**
-	 * Transforma uma string no formato controller/rota em um vetor contendo as partes da rota
+	 * Transforma uma string no formato controller/rota/parametros em um vetor contendo as partes da rota
 	 * @return array as partes da rota
 	 */
 	function resolve_rota() {
 		$rota = filter_input(INPUT_GET, 'r', FILTER_SANITIZE_STRING);
+		$partes = explode('/', $rota);
 		$partes_rota = array();
-		list($partes_rota['controller'], $partes_rota['action']) = explode('/', $rota);
+		list($partes_rota['controller'], $partes_rota['action']) = $partes;
+		$partes_rota['params'] = array_slice($partes, 2);
 		return $partes_rota;
 	}
 	
@@ -17,13 +19,24 @@
 	 * @param array $rota um vetor com a rota de destino
 	 * @param array $variaveis um vetor com variaveis que serao passadas para a action
 	 */
-	function executa_rota($rota, $variaveis = null) {
+	function executa_rota($rota = null) {
 		$arquivo_action = 'controllers'.DIRECTORY_SEPARATOR.$rota['controller'].DIRECTORY_SEPARATOR.$rota['action'].'.php';
 		if(file_exists($arquivo_action)) {
+			$params = $rota['params'];
 			include $arquivo_action;
 		} else {
 			mostra_erro_http(404, 'Página não encontrada!');
 		}
+	}
+	
+	/**
+	 * Redireciona para a rota informada
+	 *
+	 * @param string $rota
+	 *  Uma string no formato controller/action/parametro ou um vetor onde
+	 */
+	function redireciona_para($rota) {
+		header('Location: index.php?r='.$rota, true, 302);
 	}
 	
 	
@@ -72,6 +85,11 @@
 		} else {
 			mostra_erro_http(404, 'Página não encontrada!');
 		}
+	}
+	
+	function newline_to_br($texto) {
+		$texto = nl2br($texto);
+		return strtr($texto, array('\r\n'=>'<br />', '\n' => '<br />', '\r'=>'<br />'));
 	}
 	
 ?>

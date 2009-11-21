@@ -1,5 +1,6 @@
 <?php
 	global $db;
+	global $last_eror;
 	
 	/**
 	 * Inicia a conexão com o banco de dados
@@ -160,11 +161,45 @@
 	 */
 	function db_save_record($tabela, $record) {
 		global $db;
-		$record_values = array_map('mysql_escape_string', array_values($record));
-		$sql = "INSERT INTO $tabela(". implode(',', array_keys($record)) . ") VALUES('" .implode("','", $record_values) . "')";
-		$statement = $db->prepare($sql);
-		$statement->execute();
-		return (bool) $statement->rowCount();
+		$record_values = array_values($record);
+		$value_tokens = array_fill(0, count($record_values), '?');
+		$sql = "INSERT INTO $tabela(". implode(',', array_keys($record)) . ") VALUES(". implode(',', $value_tokens) .")";
+		return (bool) db_query($sql, $record_values)->rowCount();
+	}
+	
+	function db_update_record($tabela, $record, $primary_key) {
+		global $db;
+		unset($record[key($primary_key)]);
+		$record_values = array_values($record);
+		$record_values[] = reset($primary_key);
+		$sets = implode('=?, ', array_keys($record));
+		$sets .= '=?';
+		
+		$sql = "UPDATE $tabela SET $sets WHERE ".key($primary_key)."=?";
+		
+		$statement = db_query($sql, $record_values);
+		if($statement->rowCount()) {
+			return true;
+		} else {
+			set_last_error($statement);
+			return false;
+		}
+	}
+	
+	function db_last_insert_id() {
+		global $db;
+		return $db->lastInsertId();
+	}
+	
+	function get_last_error() {
+		global $last_error;
+		return $last_error;
+	}
+	
+	function set_last_error($db_object) {
+		global $last_error;
+		$erro = $db_object->errorInfo();
+		$last_error = $erro[2];
 	}
 	
 ?>
