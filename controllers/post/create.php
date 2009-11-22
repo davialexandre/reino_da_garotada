@@ -9,8 +9,8 @@
 			$post = form_to_simple_array($form);
 			$post['id_autor'] = 1;
 			if(save_post($post)) {
-				redireciona_para('post/view/'.db_last_insert_id());
-				//$message = 'Post criado! <a href="?r=post/view/'. db_last_insert_id() .'" >Clique aqui para visualizar</a>';
+				set_message('Post criado! <a href="?r=post/view/'. db_last_insert_id() .'" >Clique aqui para visualizar</a>');
+				redireciona_para('post/edit/'.db_last_insert_id());
 			} else {
 				$message = 'Não foi possível salvar o post. Tente novamente.';
 			}

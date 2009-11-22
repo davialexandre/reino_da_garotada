@@ -2,7 +2,16 @@
 
 	/**
 	 * Transforma uma string no formato controller/rota/parametros em um vetor contendo as partes da rota
-	 * @return array as partes da rota
+	 * 
+	 * @return array
+	 *   As partes da rota, no formato:
+	 *   <code>
+	 *   	array(
+	 *			'controller' => 'controllerId',
+	 *			'action' => 'actionID',
+	 *			'params' => array(1, 2, 3, ...),
+	 *		)
+	 *   </code>
 	 */
 	function resolve_rota() {
 		$rota = filter_input(INPUT_GET, 'r', FILTER_SANITIZE_STRING);
@@ -16,8 +25,9 @@
 	
 	/**
 	 * Envia a requisição para o controller e action especificados pela rota
-	 * @param array $rota um vetor com a rota de destino
-	 * @param array $variaveis um vetor com variaveis que serao passadas para a action
+	 * 
+	 * @param array $rota
+	 *   Um vetor com a rota de destino
 	 */
 	function executa_rota($rota = null) {
 		$arquivo_action = 'controllers'.DIRECTORY_SEPARATOR.$rota['controller'].DIRECTORY_SEPARATOR.$rota['action'].'.php';
@@ -42,7 +52,9 @@
 	
 	/**
 	 * Verifica se o usuário logado tem uma determinada permissão. Caso não possua, será exibida mensagem de acesso negado
-	 * @param string $permissao a permissão a ser verificada
+	 * 
+	 * @param string $permissao
+	 *   A permissão a ser verificada
 	 */
 	function verifica_permissao($permissao) {
 		$sql = "select pu.id_usuario from permissao p";
@@ -56,8 +68,11 @@
 	
 	/**
 	 * Altera o cabeçalho HTTP para o código de erro informado, e exibe a página de erro específica
-	 * @param int $codigo o código do erro http
-	 * @param string $mensagem a mensagem que será exibida na página de erro
+	 * 
+	 * @param int $codigo
+	 *  O código do erro http
+	 * @param string $mensagem
+	 *  A mensagem que será exibida na página de erro
 	 */
 	function mostra_erro_http($codigo, $mensagem = '') {
 		$erros_http = array(
@@ -87,9 +102,51 @@
 		}
 	}
 	
+	
+	/**
+	 * Troca os caracteres de newline por <br />
+	 *
+	 * Os caracteres trocados são \r\n, \n e \r.
+	 *
+	 * @param string $texto
+	 *   O texto que terá os caracteres de newline trocados
+	 *
+	 * @return string
+	 *   O texto com a tag <br /> no lugar da newline
+	 */
 	function newline_to_br($texto) {
 		$texto = nl2br($texto);
 		return strtr($texto, array('\r\n'=>'<br />', '\n' => '<br />', '\r'=>'<br />'));
+	}
+	
+	/**
+	 * Adiciona uma mensagem na seção.
+	 *
+	 * A mensagem ficará disponível até ser recuperada através da função <i>get_message</i>.
+	 * Um chamada a esta funçao, ira sobrescrever qualquer mensagem que esteja armazenada
+	 * na seçao.
+	 *
+	 * @param string $message
+	 *   A mensagem a ser armazenada na seçao.
+	 */
+	function set_message($message) {
+		session_start();
+		$_SESSION['system_message'] = $message;
+	}
+	
+	/**
+	 * Retorna a última mensagem armazenada na seção, via <i>set_message</i>.
+	 *
+	 * Apos a utilizaçao desta funçao, a mensagem retornada e removida da seçao.
+	 *
+	 * @return string
+	 *   A ultima mensagem armazenada na seçao.
+	 */
+	function get_message() {
+		session_start();
+		$message = isset($_SESSION['system_message']) ? $_SESSION['system_message'] : '';
+		unset($_SESSION['system_message']);
+		return $message;
 	}
 	
 ?>
