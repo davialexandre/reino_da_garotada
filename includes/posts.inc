@@ -1,5 +1,15 @@
 <?php
 	
+	/**
+	 * Retorna um vetor com o Post, referente ao ID informado.
+	 *
+	 * @param int $id
+	 *  O ID do post.
+	 *
+	 * @return array
+	 *  Um vetor contendo o post, referente ao ID informado. As chaves são os
+	 *  nomes dos campos no banco de dados.
+	 */
 	function load_post($id) {
 		$sql = 'SELECT * FROM post WHERE id = ?';
 		$post = db_fetch_row(db_query($sql, array($id)));
@@ -7,6 +17,20 @@
 		return $post;
 	}
 	
+	
+	/**
+	 * Salva as alterações de um post.
+	 *
+	 * Caso seja um novo registro (não possui o atributo id), o post será adicionado
+	 * ao banco. Caso já exista, ele será atualizado.
+	 *
+	 * @param array $post
+	 *   Um vetor, onde as chaves são os nomes dos campos, apontando para os valores
+	 *   que deverão ser armazenados.
+	 *
+	 * @return bool
+	 *   TRUE caso a operação ocorra com sucesso. FALSE caso ocorra alguma falha.
+	 */
 	function save_post($post) {
 		if(isset($post['id'])) {
 			return db_update_record('post', $post, array('id' => $post['id']));

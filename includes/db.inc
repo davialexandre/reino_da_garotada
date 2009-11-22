@@ -167,6 +167,28 @@
 		return (bool) db_query($sql, $record_values)->rowCount();
 	}
 	
+	/**
+	 * Atualiza um registro no banco de dados.
+	 *
+	 * Esta função atualiza um registro existente na tabela informada. Os novos
+	 * valores serão atualizados de acordo com os dados em <i>$record</i>.
+	 *
+	 * O registro a ser atualizado e indentificado pelo argumento <i>$primary_key</i>.
+	 *
+	 * @param string $tabela
+	 *  O nome da tabela onde esta o registro a ser atualizado
+	 *
+	 * @param array $record
+	 *  Um vetor com os campos e valores a serem atualizados. As chaves representam
+	 *  os campos, e os valores os novos valores do registro.
+	 *
+	 * @param array $primary_key
+	 *  Um vetor com um unico elemento, onde a chave e o nome da coluna da chave primaria
+	 *  e o valor e o valor da chave primario do registro a ser atualizado.
+	 *
+	 * @return bool
+	 *  True em caso de sucesso, false em caso de falha.
+	 */
 	function db_update_record($tabela, $record, $primary_key) {
 		global $db;
 		unset($record[key($primary_key)]);
@@ -186,16 +208,37 @@
 		}
 	}
 	
+	/**
+	 * A valor do último campo do tipo AUTO INCREMENT, a ser adicionado
+	 *
+	 * @return mixed
+	 *  O valor do campo
+	 */
 	function db_last_insert_id() {
 		global $db;
 		return $db->lastInsertId();
 	}
 	
+	
+	/**
+	 * Retorna a mensagem do último erro retorna em uma operação de banco de dados.
+	 *
+	 * @return string
+	 *  A mensagem do erro
+	 */
 	function get_last_error() {
 		global $last_error;
 		return $last_error;
 	}
 	
+	
+	/**
+	 * Guarda a mensagem do último erro ocorrido em um operação no banco de dados
+	 *
+	 * @param mixed $db_object
+	 *  O objeto que efetuou a operação que originou o erro
+	 *
+	 */
 	function set_last_error($db_object) {
 		global $last_error;
 		$erro = $db_object->errorInfo();
