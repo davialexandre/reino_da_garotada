@@ -1,5 +1,7 @@
 <?php
 	
+	define('POSTS_PER_PAGE', 20);
+	
 	/**
 	 * Retorna um vetor com o Post, referente ao ID informado.
 	 *
@@ -15,6 +17,22 @@
 		$post = db_fetch_row(db_query($sql, array($id)));
 		
 		return $post;
+	}
+	
+	function load_posts($conditions = null, $full = true, $from = 0, $count = POSTS_PER_PAGE) {
+		$where_clause = '';
+		$params = array();
+		if(is_array($conditions)) {
+			$where_clause = 'WHERE ' . implode(' ', $conditions);
+		}
+		$fields = $full ? '*' : 'id, titulo, chamada, id_autor, data_atualizacao';
+		
+		$sql = "SELECT $fields FROM post $where_clause";
+		
+		$posts = db_fetch_all(db_query_range($sql, 0, POSTS_PER_PAGE));
+		
+		return $posts;
+		
 	}
 	
 	

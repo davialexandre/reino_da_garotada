@@ -130,7 +130,7 @@
 			$from = 0;
 			$count = 0;
 		}
-		$query .= " LIMIT $from, $count";
+		$sql .= " LIMIT $from, $count";
 		
 		$statement = $db->prepare($sql);
 		$statement->execute($params);
