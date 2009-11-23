@@ -63,7 +63,9 @@
 	function db_query($sql, $params = array()) {
 		global $db;
 		$statement = $db->prepare($sql);
-		$statement->execute($params);
+		if($statement->execute($params) == false) {
+            set_last_error($statement);
+        }
 		return $statement;
 	}
 	
@@ -98,6 +100,9 @@
 		return $result->fetchAll(PDO::FETCH_ASSOC);
 	}
 	
+	function db_fetch_column($result) {
+		return $result->fetchColumn();
+	}
 	
 	/**
 	 * Executa uma consulta no banco e retorna apenas os resultados dentro de um

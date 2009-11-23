@@ -1,6 +1,6 @@
 <?php
 	
-	define('POSTS_PER_PAGE', 20);
+	define('POSTS_PER_PAGE', 10);
 	
 	/**
 	 * Retorna um vetor com o Post, referente ao ID informado.
@@ -19,7 +19,7 @@
 		return $post;
 	}
 	
-	function load_posts($conditions = null, $full = true, $from = 0, $count = POSTS_PER_PAGE) {
+	function load_posts($from = 0, $count = POSTS_PER_PAGE, $conditions = null, $full = true) {
 		$where_clause = '';
 		$params = array();
 		if(is_array($conditions)) {
@@ -29,12 +29,10 @@
 		
 		$sql = "SELECT $fields FROM post $where_clause";
 		
-		$posts = db_fetch_all(db_query_range($sql, 0, POSTS_PER_PAGE));
+		$posts = db_fetch_all(db_query_range($sql, $from, $count));
 		
 		return $posts;
-		
 	}
-	
 	
 	/**
 	 * Salva as alterações de um post.
@@ -55,6 +53,12 @@
 		} else {
 			return db_save_record('post', $post);	
 		}
+	}
+	
+	
+	function load_comments($post_id) {
+		$sql = 'SELECT * FROM comentario WHERE id_post=?';
+		return db_fetch_all(db_query($sql, array($post_id)));
 	}
 	
 ?>

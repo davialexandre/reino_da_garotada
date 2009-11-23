@@ -130,7 +130,6 @@
 	 *   A mensagem a ser armazenada na seçao.
 	 */
 	function set_message($message) {
-		session_start();
 		$_SESSION['system_message'] = $message;
 	}
 	
@@ -143,10 +142,34 @@
 	 *   A ultima mensagem armazenada na seçao.
 	 */
 	function get_message() {
-		session_start();
 		$message = isset($_SESSION['system_message']) ? $_SESSION['system_message'] : '';
 		unset($_SESSION['system_message']);
 		return $message;
+	}
+	
+	function create_pager($total_itens, $itens_pagina = 10) {
+		$rota = filter_input(INPUT_GET, 'r', FILTER_SANITIZE_STRING);
+		$num_paginas = ceil($total_itens / $itens_pagina);
+		$pagina_atual = isset($_GET['page']) ? $_GET['page'] : 1;
+		$pager = '<ul class="pager">';
+		for($i = 1; $i <= $num_paginas; $i++) {
+			if($pagina_atual == $i) {
+				$link = $i;
+			} else {
+				$_REQUEST['page'] = $i;
+				$link = '<a href="index.php?'. get_query_string() .'">'.$i.'</a>';
+			}
+			$pager .= '<li>'.$link.'</li>';
+		}
+		return $pager;
+	}
+	
+	function get_query_string() {
+		$params = array();
+		foreach($_REQUEST as $key => $value) {
+			$params[] = $key .'='. $value;
+		}
+		return implode('&', $params);
 	}
 	
 ?>

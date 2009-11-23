@@ -278,6 +278,7 @@
 				case 'submit':
 				case 'radio':
 				case 'file':
+				case 'hidden':
 					return render_input_element($element, $name);
 			}
 		} else {
@@ -552,6 +553,7 @@
 			case 'text':
 			case 'password':
 			case 'file':
+			case 'hidden':
 				$value = isset($element['attributes']['value']) ? trim($element['attributes']['value']) : null;
 				break;
 			case 'checkbox':
