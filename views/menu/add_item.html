@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC
+	"-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>Editar menu</title>
+		<link rel="stylesheet" href="css/admin.css" type="text/css" />
+		<style type="text/css">
+			.erro {
+				border: 1px solid #FF0000;
+			}
+			.error_summary {
+				border: 1px solid #FF0000;
+				background-color: #FFAEAE;
+			}
+		</style>
+	</head>
+	<body>
+		<?php if(isset($message)): ?>
+		<div class="message">
+			<p><?php echo $message; ?></p>
+		</div>
+		<?php endif; ?>
+		<?php echo form_error_summary($form); ?>
+		<?php echo render_form($form); ?>
+		<div id="menu_itens">
+			<?php echo render_menu($menu, true); ?>
+		</div>
+	</body>
+</html>

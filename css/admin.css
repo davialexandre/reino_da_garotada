@@ -1,0 +1,31 @@
+* {
+	font-family: Arial;
+	font-size: 12px;
+}
+
+form {
+	width: 400px;
+}
+
+fieldset {
+	border: none;
+	background-color: #ECE9E9;
+	padding: 10px;
+}
+
+legend {
+	font-weight: bold;
+	font-size: 14px;
+}
+
+label, input, textarea, select {
+	display: block;
+}
+
+label {
+	cursor: pointer;
+}
+
+input[type=text], input[type=password], textarea {
+	width: 100%;
+}

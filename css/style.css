@@ -1,0 +1,434 @@
+html *{
+	margin:0;
+	padding:0;
+	font-family: Arial, Verdana;
+}
+
+body {
+	background-color: #87cadb;
+}
+
+a{outline:none;	border:0;}
+
+input.submit {
+  background:#37ABC8;
+  color:#fff;
+  font-size:11pt;
+}
+
+
+#wrapper {
+	width:960px;
+	margin: 0 auto;
+	height:1500px;
+	background-color: #d7eef4;
+}
+#wrapper #header {
+  position:relative;
+	background: url(images/header.gif) no-repeat;
+	width:100%;
+	height:262px;
+}
+
+#wrapper #header h1{
+	float:left;
+	position:relative;
+	margin: 8px 5px 0 10px;
+	background: url(images/logo.png);
+	width: 341px;
+	height: 64px;
+	text-indent:-9999px;
+}
+
+#wrapper #header #menu  li {
+	list-style:none;
+	display: inline;
+	background: url(images/button.gif) no-repeat; 
+	width:113px;
+	height:26px;
+	text-align:center;
+	float:left;
+	position:relative;
+	margin: 21px 0 0 5px;
+	padding-top:2px;
+}
+
+#wrapper #header #menu  li a{
+	text-decoration:none;
+	outline:none;
+	color:#fff;
+	font-weight:bold;
+	font-size: 10pt;
+}
+
+#wrapper #header div#search {
+	background: url(images/textbox.png) no-repeat;
+	position:absolute;
+	width:241px;
+	height:26px;
+	left:24px;
+	bottom:6px;
+}
+
+#wrapper #header div#search .textsearch{
+	height:19px;
+	width:150px;
+	float:left;
+	border:0px solid;
+	margin:5px 0 0 2px;
+	
+}
+
+#wrapper  #header div#search  .submit{
+	float:left;
+	height:24px;
+	width:92px;
+	margin:1px 0 0 -4px;
+	outline:none;
+}
+
+#wrapper #content #newsletter .textemail{
+	margin:5px 0 0 2px;
+	height:19px;
+	width:150px;
+	float:left;
+	border:0px solid;
+}
+
+
+#wrapper #content{
+	position:relative;
+	width:960px;
+	height:1083px;
+}
+
+#wrapper #content #showcase{
+	background: url(images/showcase.gif) no-repeat;
+	width:930px;
+	height:411px;
+	margin-left:11px;
+}
+
+#wrapper #content #showcase p.text{
+	background: url(images/textbg.png) no-repeat;
+	width:618px;
+	height:99px;
+	margin: 290px 0 0 31px;
+	position:absolute;
+	padding: 5px 10px 10px 10px;
+	font-size: 26px;
+	font-weight:bold;
+	color: #fff;
+}
+
+#wrapper #content #showcase div.collaborate{
+	background: url(images/collaboratebg.png) no-repeat;
+	margin: 10px 0 0 617px;
+	width:284px;
+	height:255px;
+	position:absolute;
+}
+
+#wrapper #content #showcase div.collaborate a h2{
+	background: url(images/collaborate.png) no-repeat;
+	width:140px;
+	height:21px;
+	position:absolute;
+	margin: 18px 0 0 14px;
+	text-indent:-9999px;
+	cursor:pointer;
+}
+
+#wrapper #content #showcase div.collaborate p.text1 {
+	font-size:13px;
+	margin: 56px 14px 0 17px;
+}
+
+#wrapper #content #showcase div.collaborate p.text2 {
+	font-size:13px;
+	margin: 17px 14px 0 17px;
+}
+
+#wrapper #content #showcase div.collaborate a.gocollaborate {
+	background: url(images/button1.png) no-repeat;
+	width:240px;
+	height:26px;
+	position:absolute;
+	margin:18px 0 0 22px;
+	text-align:center;
+	padding-top:5px;
+	font-size:12px;
+	font-weight:bold;
+	text-decoration:none;
+	outline:none;
+	color:#fff;
+}
+
+#wrapper #content #showcase span a{
+	text-decoration:none;
+	font-weight:bold;
+	font-size: 12pt;
+	color:#fff;
+}
+
+#wrapper #content #news{
+	background: url(images/news.png) no-repeat;
+	float:left;
+	width: 617px;
+	height: 536px;
+	margin: 21px 0 0 20px;
+	position:relative;
+}
+
+#wrapper #content #news a h2{
+	background: url(images/gonews.gif) no-repeat;
+	width:186px;
+	height:37px;
+	position:absolute;
+	margin: 18px 0 0 14px;
+	text-indent:-9999px;
+	cursor:pointer;
+}
+
+#wrapper #content #news  .news1 img.zoo{
+	width:127px;
+	height:95px;
+	float:left;
+	position:relative;
+}
+
+#wrapper #content #news  .news1 {
+	width: 583px;
+	height: 137px;
+	margin: 72px 0 0 19px;
+	position:relative;
+}
+
+#wrapper #content #news  .news1  h3{
+	float:left;
+	margin-left:30px;
+	width:70%;
+}
+
+#wrapper #content #news  .news1  p{
+	float:left;
+	margin: 5px 10px 0 30px;
+	width:70%;
+	font-size:10pt;
+}
+
+#wrapper #content #news   a.continue{
+	text-decoration:none;
+	outline:none;
+	font-weight:bold;
+	font-size: 9pt;
+	color:#000;
+	float:right;
+}
+#wrapper #content #news  .news2 {
+	width: 583px;
+	height: 97px;
+	margin-left:19px;
+	position:relative;
+	background: #f3f3f3;
+}
+
+#wrapper #content #news  .date{
+	width: 35px;
+	height: 35px;
+	margin-top:5px;
+	position:absolute;
+	background: #fff;
+	text-align:center;
+	font-size:10pt;
+	padding-top:2px;
+	font-weight:bold;
+}
+
+#wrapper #content #news .title{
+	margin-left:50px;
+	width:100%;
+	padding-top:7px;
+}
+
+#wrapper #content #news .text{
+	margin: 5px 10px 0 50px;
+	font-size:10pt;
+}
+
+#wrapper #content #news  .news3 {
+	width: 583px;
+	height: 97px;
+	margin-left:19px;
+	position:relative;;
+}
+
+#wrapper #content #news  .news3 span.date1{
+	width: 35px;
+	height: 35px;
+	margin-top:5px;
+	position:absolute;
+	background: #f3f3f3;
+	text-align:center;
+	font-size:10pt;
+	padding-top:2px;
+	font-weight:bold;
+}
+
+#wrapper #content #news  .news4 {
+	width: 583px;
+	height: 97px;
+	margin-left: 19px;
+	position:relative;
+	background: #f3f3f3;
+}
+
+#wrapper #content #events{
+	background: url(images/events.png) no-repeat;
+	float:left;
+	width: 274px;
+	height: 353px;
+	margin: 21px 0 0 27px;
+	position:relative;
+}
+
+#wrapper #content #events a h2{
+	width:214px;
+	height:39px;
+	position:absolute;
+	margin: 18px 0 0 14px;
+	background: url(images/goevents.gif) no-repeat;
+	text-indent: -9999px;
+	cursor:pointer;
+}
+
+#wrapper #content #events .event h4.title1{
+	position:relative;
+	margin: 65px 0 0 16px;
+}
+#wrapper #content #events .event h4.title1 a{
+	outline:none;
+	text-decoration:none;
+	color:#000;
+}
+
+#wrapper #content #events .event h4.title a{
+	outline:none;
+	text-decoration:none;
+	color:#000;
+}
+
+#wrapper #content #events .event span.date{
+	font-size:10pt;
+	font-weight:bold;
+	margin-left: 18px;
+}
+#wrapper #content #events .event p.text{
+	font-size:10pt;
+	margin-left:18px;
+}
+#wrapper #content #events .event h4.title{
+	margin: 20px 0 0 16px;
+}
+
+#wrapper #content #events a.goevents{
+	text-decoration:none;
+	outline:none;
+	color:#000;
+	position:absolute;
+	margin: 18px 0 0 44px;
+	font-size:12pt;
+	font-weight:bold;
+}
+
+#wrapper #content #newsletter{
+	background: url(images/newsletter.png) no-repeat;
+	float:left;
+	width: 274px;
+	height: 170px;
+	margin: 16px 0 0 27px;
+	position:relative;
+}
+
+#wrapper #content #newsletter a h2{
+	width:220px;
+	height:38px;
+	position:absolute;
+	margin: 12px 0 0 14px;
+	background: url(images/gonewsletter.gif) no-repeat;
+	text-indent:-9999px;
+	cursor:pointer;
+}
+
+#wrapper #content #newsletter p.text{
+	margin: 55px 0 0 15px;
+	font-size:10pt;
+}
+
+#wrapper #content #newsletter p.sign{
+	margin:5px 0 0 15px;
+	font-size:10pt;
+}
+
+#wrapper #content #newsletter div.sendemail{
+	background: url(images/textbox.png) no-repeat;
+	width:241px;
+	height:26px;
+	margin:8px 0 0 15px;
+}
+
+#wrapper #content #newsletter .textemail{
+	margin:5px 0 0 2px;
+	height:19px;
+	width:150px;
+	float:left;
+	border:0px solid;
+}
+
+#wrapper #content #newsletter .send{
+	float:left;
+	height:24px;
+	width:92px;
+	margin:1px 0 0 -4px;
+	outline:none;
+}
+
+#wrapper  #footer{
+	background: url(images/footer.png) no-repeat;
+	width: 960px;
+	height: 155px;
+	position:relative;
+}
+
+#wrapper  #footer ul.links{
+	margin-left: 136px;
+	padding-top:5px;
+	color:#fff;
+}
+
+#wrapper #footer ul li {
+	list-style:none;
+	display: inline;
+	width:70px;
+	margin: 10px 15px 0 15px;
+}
+
+#wrapper  #footer ul li a {
+	text-decoration:none;
+	outline:none;
+	color:#fff;
+	font-weight:bold;
+	font-size: 10pt;
+}
+
+#wrapper  #footer p.address{
+	margin: 56px 0 10px 281px;
+	font-size: 12px;
+	color: #fff;
+}
+
+#wrapper  #footer p.copy{
+	margin-left:292px;
+	font-size: 12px;
+	color: #fff;
+}
