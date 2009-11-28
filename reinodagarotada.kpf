@@ -3,7 +3,36 @@
 <project id="fe5b819c-1b63-4e54-bc0b-d721eb517715" kpf_version="4" name="reinodagarotada.kpf">
 <file id="e6e7717a-e30a-4abf-97a2-21049f57eae2" idref="fe5b819c-1b63-4e54-bc0b-d721eb517715" name="form.php" url="file:///var/www/form.php">
 </file>
+<preference-set idref="5f524e09-4c7c-4240-ab10-f8dc91f727ed">
+<preference-set id="Invocations">
+<preference-set id="default">
+  <string id="cookieparams"></string>
+  <string id="cwd"></string>
+  <boolean id="disableOutputBuffering">1</boolean>
+  <string id="documentRoot"></string>
+  <boolean id="enableImplicitFlush">1</boolean>
+  <string id="executable-params"></string>
+  <string relative="path" id="filename">includes/usuarios.inc</string>
+  <string id="getparams"></string>
+  <string id="language">PHP</string>
+  <string id="mpostparams"></string>
+  <string id="params"></string>
+  <string id="phpInterpreterType">php-cgi</string>
+  <string id="postparams"></string>
+  <string id="posttype">application/x-www-form-urlencoded</string>
+  <string id="request-method">GET</string>
+  <boolean id="show-dialog">1</boolean>
+  <boolean id="sim-cgi">0</boolean>
+  <boolean id="use-console">0</boolean>
+  <string id="userCGIEnvironment"></string>
+  <string id="userEnvironment"></string>
+</preference-set>
+</preference-set>
+  <string id="lastInvocation">default</string>
+</preference-set>
 <preference-set idref="fe5b819c-1b63-4e54-bc0b-d721eb517715">
   <boolean id="import_live">1</boolean>
+</preference-set>
+<preference-set idref="fe5b819c-1b63-4e54-bc0b-d721eb517715/views/usuarios/create.html">
 </preference-set>
 </project>
