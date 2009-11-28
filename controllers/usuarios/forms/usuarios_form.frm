@@ -1,6 +1,6 @@
 <?php
 	return array(
-		'name' => 'usuario_form',
+		'name' => 'usuarios_form',
 		'adicionar_usuario' => array(
 			'label' => 'Adicionar Usuário: ',
 			'nome_usuarios' => array(
