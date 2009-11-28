@@ -1,7 +1,7 @@
 <?php
 	
 	include 'includes/usuarios.inc';
-	$form = include 'form/usuarios_form.frm';
+	$form = include 'forms/usuarios_form.frm';
 	$message = '';
 	if(isset($_POST['nome_usuarios'])) {
 		fill_form($form);

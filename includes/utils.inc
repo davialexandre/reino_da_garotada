@@ -2,7 +2,10 @@
 
 	/**
 	 * Transforma uma string no formato controller/rota/parametros em um vetor contendo as partes da rota
-	 * 
+	 *
+	 * Caso um controller não seja informado, será utilizado o controller <i>site</i>.
+	 *
+	 * Caso uma action nao seja informada, sera utilizada a action <i>index</i>.
 	 * @return array
 	 *   As partes da rota, no formato:
 	 *   <code>
@@ -15,9 +18,16 @@
 	 */
 	function resolve_rota() {
 		$rota = filter_input(INPUT_GET, 'r', FILTER_SANITIZE_STRING);
+		
 		$partes = explode('/', $rota);
 		$partes_rota = array();
+		
+		if(!$partes || empty($partes[0])) {
+			$partes = array('site', 'index');
+		}
+		
 		list($partes_rota['controller'], $partes_rota['action']) = $partes;
+		
 		$partes_rota['params'] = array_slice($partes, 2);
 		return $partes_rota;
 	}
@@ -91,7 +101,7 @@
 	 * Exibe a view específica para a action atual.
 	 * @param array $variaveis um vetor com as variáveis que serão enviadas para a view
 	 */
-	function exibe_view($variaveis) {
+	function exibe_view($variaveis = array()) {
 		$rota = resolve_rota();
 		$arquivo_view = 'views'.DIRECTORY_SEPARATOR.$rota['controller'].DIRECTORY_SEPARATOR.$rota['action'].'.html';
 		if(file_exists($arquivo_view)) {
@@ -156,7 +166,7 @@
 			if($pagina_atual == $i) {
 				$link = $i;
 			} else {
-				$_REQUEST['page'] = $i;
+				$_GET['page'] = $i;
 				$link = '<a href="index.php?'. get_query_string() .'">'.$i.'</a>';
 			}
 			$pager .= '<li>'.$link.'</li>';
@@ -166,7 +176,7 @@
 	
 	function get_query_string() {
 		$params = array();
-		foreach($_REQUEST as $key => $value) {
+		foreach($_GET as $key => $value) {
 			$params[] = $key .'='. $value;
 		}
 		return implode('&', $params);

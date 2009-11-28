@@ -561,7 +561,7 @@
 				break;
 			case 'radiolist':
 			case 'dropdownlist':
-				$value = isset($element['selected']) ? trim($element['selected']) : null;
+				$value = isset($element['selected']) && $element['selected'] != '' ? trim($element['selected']) : null;
 				break;
 			case 'textarea':
 				$value = isset($element['texto']) ? trim($element['texto']) : null;

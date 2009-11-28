@@ -63,7 +63,7 @@
 	function db_query($sql, $params = array()) {
 		global $db;
 		$statement = $db->prepare($sql);
-		if($statement->execute($params) == false) {
+		if($statement->execute($params) === false) {
             set_last_error($statement);
         }
 		return $statement;

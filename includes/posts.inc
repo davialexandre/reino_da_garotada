@@ -30,7 +30,7 @@
 		$sql = "SELECT $fields FROM post $where_clause";
 		
 		$posts = db_fetch_all(db_query_range($sql, $from, $count));
-		
+
 		return $posts;
 	}
 	
