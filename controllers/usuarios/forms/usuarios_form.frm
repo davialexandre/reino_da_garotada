@@ -34,7 +34,7 @@
 				)
 			),
 		),
-		'submit' => array(
+                'submit' => array(
 			'type' => 'submit',
 			'attributes' => array(
 				'value' => 'Adicionar usuário',
