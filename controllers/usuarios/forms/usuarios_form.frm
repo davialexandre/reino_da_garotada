@@ -3,7 +3,7 @@
 		'name' => 'usuarios_form',
 		'adicionar_usuario' => array(
 			'label' => 'Adicionar Usuário: ',
-			'nome_usuarios' => array(
+			'nome' => array(
 				'label' => 'Nome: ',
 				'type' => 'text',
 				'rules' => array(
@@ -11,14 +11,14 @@
 				)
 			),
 			'label' => 'Login: ',
-			'login_usuarios' => array(
+			'login' => array(
 				'label' => 'Login: ',
 				'type' => 'text',
 				'rules' => array(
 					array('type' => 'required', 'message' => 'Você deve informar o login'),
 				)
 			),
-			'email_usuarios' => array(
+			'email' => array(
 				'label' => 'E-mail: ',
 				'type' => 'text',
 				'rules' => array(
@@ -26,7 +26,7 @@
 					array('type' => 'email', 'message' => 'Você deve informar um endereço de e-mail válido'),
 				)
 			),
-                        'senha_usuarios' => array(
+                        'senha' => array(
 				'label' => 'Senha: ',
 				'type' => 'password',
 				'rules' => array(
