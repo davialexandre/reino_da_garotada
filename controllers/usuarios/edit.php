@@ -3,7 +3,7 @@
 	$form = include 'forms/usuarios_edit_form.frm';
 	$id = $params[0];
 	
-	$usuario = load_usuarios($id);
+	$usuario = load_usuario($id);
 	$view_params['message'] = get_message();
 	if(isset($_POST['nome'])) {
 		fill_form($form);
@@ -11,7 +11,7 @@
 			$usuario = form_to_simple_array($form);
 			$usuario['id'] = $id;
 			if(save_usuarios($usuario)) {
-				redireciona_para("usuarios/view/$id");
+				redireciona_para("usuarios/list");
 			} else {
 				$view_params['message'] .= '<br />Nao foi possivel editar este usuário. Tente novamente.<br />' . get_last_error();
 			}
