@@ -1,6 +1,6 @@
 <html lang="pt-br">
 	<head>
-		<title>Listagem de Posts</title>
+		<title>Listagem de Usuários</title>
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	</head>
 	<body>
@@ -8,20 +8,20 @@
 			<thead>
 				<tr>
 					<th>id</th>
-					<th>titulo</th>
-					<th>chamada</th>
-					<th>autor</th>
-					<th>ultima atualizaçao</th>
+					<th>nome</th>
+					<th>login</th>
+					<th>email</th>
+					<th>ultimo acesso</th>
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach($posts as $post): ?>
+				<?php foreach($usuario as $usuarios): ?>
 					<tr>
-						<td><?php echo $post['id']; ?></td>
-						<td><a href="index.php?r=post/view/<?php echo $post['id']; ?>"><?php echo $post['titulo']; ?></a></td>
-						<td><?php echo $post['chamada']; ?></td>
-						<td><?php echo $post['id_autor']; ?></td>
-						<td><?php echo date('d/m/Y H:i', $post['ultima_atualizacao'] ? strtotime($post['ultima_atualizacao']) : strtotime($post['data_criacao'])); ?></td>
+						<td><?php echo $usuarios['id']; ?></td>
+						<td><a href="index.php?r=usuario/view/<?php echo $usuarios['id']; ?>"><?php echo $usuarios['nome']; ?></a></td>
+						<td><?php echo $usuarios['login']; ?></td>
+						<td><?php echo $usuarios['email']; ?></td>
+						<td><?php echo $usuarios['data_ultimo_acesso']; ?></td>
 					</tr>
 				<?php endforeach; ?>
 			</tbody>
