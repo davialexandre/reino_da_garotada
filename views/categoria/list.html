@@ -1,0 +1,32 @@
+<html lang="pt-br">
+	<head>
+		<title>Listagem de Posts</title>
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	</head>
+	<body>
+		<h1>Listagem de posts na categoria: <?php echo $categoria['nome']; ?></h1>
+		<p>Descriçao da categoria: <?php echo newline_to_br($categoria['descricao']); ?></p>
+		<table>
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>titulo</th>
+					<th>chamada</th>
+					<th>autor</th>
+					<th>ultima atualizaçao</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php foreach($posts as $post): ?>
+					<tr>
+						<td><?php echo $post['id']; ?></td>
+						<td><a href="index.php?r=post/view/<?php echo $post['id']; ?>"><?php echo $post['titulo']; ?></a></td>
+						<td><?php echo $post['chamada']; ?></td>
+						<td><?php echo $post['id_autor']; ?></td>
+						<td><?php echo date('d/m/Y H:i', $post['ultima_atualizacao'] ? strtotime($post['ultima_atualizacao']) : strtotime($post['data_criacao'])); ?></td>
+					</tr>
+				<?php endforeach; ?>
+			</tbody>
+		</table>
+	</body>
+</html>

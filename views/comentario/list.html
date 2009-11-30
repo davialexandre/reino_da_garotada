@@ -1,0 +1,38 @@
+<html lang="pt-br">
+	<head>
+		<title>Listagem de Posts</title>
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	</head>
+	<body>
+		<table>
+			<thead>
+				<tr>
+					<th>Titulo</th>
+					<th>Autor</th>
+					<th>Comentario</th>
+					<th>Enviado em</th>
+					<th>No post</th>
+					<th>Operaçoes</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php foreach($comentarios as $comentario): ?>
+					<tr>
+						<td><?php echo $comentario['titulo']; ?></td>
+						<td>
+							<p>Autor: <?php echo $comentario['nome_autor']; ?><br />
+							E-mail: <?php echo $comentario['email_autor']; ?><br /></p>
+						</td>
+						<td><?php echo newline_to_br($comentario['texto']); ?></td>
+						<td><?php echo date('d/m/Y H:i', strtotime($comentario['data_criacao'])); ?></td>
+						<td><a href="index.php?r=post/view/<?php echo $comentario['id_post']; ?>" target="_blank"><?php echo $comentario['titulo_post']; ?></a></td>
+						<td>
+							[<a href="index.php?r=comentario/delete/<?php echo $comentario['id']; ?>">apagar</a>]
+						</td>
+					</tr>
+				<?php endforeach; ?>
+			</tbody>
+		</table>
+		<?php echo $pager; ?>
+	</body>
+</html>
