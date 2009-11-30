@@ -1,4 +1,5 @@
 <?php
+
 	return $form = array(
 		'method' => 'post',
 		'name' => 'criar_post',
@@ -12,6 +13,16 @@
 					array('type' => 'required', 'message' => 'Este campo é obrigatório'),
 				)
 			),
+			'categorias' => array(
+				'label' => 'Categoria: ',
+				'type' => 'listbox',
+				'multiple' => true,
+				'options' => array(),
+				'prompt' => ' - Selecione uma categoria - ',
+				'rules' => array(
+					array('type' => 'required', 'message' => 'Este campo é obrigatório'),
+				),
+			),
 			'chamada' => array(
 				'label' => 'Chamada para a postagem: ',
 				'type' => 'textarea',
@@ -22,7 +33,7 @@
 				'label' => 'Texto da postagem: ',
 				'type' => 'textarea',
 				'cols' => 100,
-				'rows' => 50,
+				'rows' => 20,
 				'rules' => array(
 					array('type' => 'required', 'message' => 'Este campo é obrigatório'),
 				)

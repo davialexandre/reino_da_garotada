@@ -15,7 +15,7 @@
 	function load_post($id) {
 		$sql = 'SELECT * FROM post WHERE id = ?';
 		$post = db_fetch_row(db_query($sql, array($id)));
-		
+		$post['categorias'] = implode(',', array_keys(load_categorias_post($id)));
 		return $post;
 	}
 	
@@ -34,6 +34,18 @@
 		return $posts;
 	}
 	
+	function load_posts_categoria($id_categoria) {
+		$ids_posts = array();
+		$result = db_query('SELECT id_post FROM categoria_post WHERE id_categoria = ?', array($id_categoria));
+		while($id_post = db_fetch_column($result)) {
+			$ids_posts[] = $id_post;
+		}
+		
+		$posts = db_fetch_all(db_query('SELECT * FROM post WHERE id IN('.implode(',', $ids_posts).')'));
+		
+		return $posts;
+	}
+	
 	/**
 	 * Salva as alterações de um post.
 	 *
@@ -48,17 +60,73 @@
 	 *   TRUE caso a operação ocorra com sucesso. FALSE caso ocorra alguma falha.
 	 */
 	function save_post($post) {
+		$categorias = explode(',', $post['categorias']);
+		unset($post['categorias']);
 		if(isset($post['id'])) {
-			return db_update_record('post', $post, array('id' => $post['id']));
+			$post_salvo = db_update_record('post', $post, array('id' => $post['id']));
 		} else {
-			return db_save_record('post', $post);	
+			$post_salvo = db_save_record('post', $post);
+			$post['id'] = db_last_insert_id();
 		}
+		
+		return $post_salvo && save_categorias_post($post['id'], $categorias);
+	}
+	
+	function save_categorias_post($id_post, $categorias) {
+		db_query('DELETE FROM categoria_post WHERE id_post = ?', array($id_post));
+		
+		$categorias_salvadas = true;
+		
+		foreach($categorias as $id_categoria) {
+			$record['id_post'] = $id_post;
+			$record['id_categoria'] = $id_categoria;
+			$categorias_salvadas = $categorias_salvadas && db_save_record('categoria_post', $record);
+		}
+		
+		return $categorias_salvadas;
 	}
 	
 	
-	function load_comments($post_id) {
+	function load_post_comments($post_id) {
 		$sql = 'SELECT * FROM comentario WHERE id_post=?';
 		return db_fetch_all(db_query($sql, array($post_id)));
+	}
+	
+	
+	function load_categorias_post($post_id) {
+		$sql = 'SELECT id_categoria FROM categoria_post WHERE id_post=?';
+		$result = db_query($sql, array($post_id));
+		$ids_categorias = array();
+		while($id = db_fetch_column($result)) {
+			$ids_categorias[] = $id;
+		}
+		
+		$sql = 'SELECT id, nome FROM categoria WHERE id IN ('.implode(',', $ids_categorias).')';
+		$result = db_query($sql);
+		$categorias = array();
+		while($categoria = db_fetch_row($result)) {
+			$categorias[$categoria['id']] = $categoria['nome'];
+		}
+		
+		return $categorias;
+	}
+	
+	function load_categoria($categoria) {
+		return db_fetch_row(db_query('SELECT * FROM categoria WHERE nome = ?', array($categoria)));
+	}
+	
+	function load_categorias($full=false) {
+		$fields = $full ? '*' : 'id, nome';
+		$sql = "SELECT $fields FROM categoria";
+		
+		$result = db_query($sql);
+		$categorias = array();
+		$categorias = db_fetch_all($result);
+		/*while($categoria = db_fetch_row($result)) {
+			$categorias[$categoria['id']] = $categoria['nome'];
+		}*/
+		
+		return $categorias;
 	}
 	
 ?>

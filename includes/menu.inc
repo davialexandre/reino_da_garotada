@@ -6,23 +6,23 @@
 	}
 	
 	function parse_menu($menu_itens) {
-		$parsed_menu = array();
+		$parsed_menu = array('children' => array());
 		
 		foreach($menu_itens as $key => $item) {
 			if(!$item['item_superior']) {
 				$item['children'] = array();
-				$parsed_menu[0][] = $item;
+				$parsed_menu['children'][] = $item;
 				unset($menu_itens[$key]);
 			}
 		}
 		
 		if(!empty($parsed_menu)) {
-			foreach($parsed_menu[0] as &$item) {
+			foreach($parsed_menu['children'] as &$item) {
 				fill_menu_item_children($item, $menu_itens);
 			}		
 		}
 		
-		return $parsed_menu[0];
+		return $parsed_menu;
 	}
 	
 	function fill_menu_item_children(&$item, &$menu_itens) {
@@ -43,13 +43,13 @@
         $tag = '';
         if(!empty($menu)) {
             $tag = '<ul>';
-            foreach($menu as $submenu) {
+            foreach($menu['children'] as $submenu) {
 				if($show_admin_links) $admin_link = ' -  [<a href="index.php?r=menu/delete_item/' . $submenu['id'] . '">apagar</a>] ';
 				else $admin_link = '';
                 $tag .= '<li><a href="'. $submenu['endereco'] .'">' . $submenu['titulo'] . '</a> ' . $admin_link . '</li>';
                 if(!empty($submenu['children'])) {
                     $tag .= '<li>';
-                    $tag .= render_menu($submenu['children'], $show_admin_links);
+                    $tag .= render_menu($submenu, $show_admin_links);
                     $tag .= '</li>';
                 }
             }

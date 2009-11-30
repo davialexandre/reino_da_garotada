@@ -1,9 +1,19 @@
 <?php
 	include_once 'includes/posts.inc';
 	$form = include 'forms/post_form.frm';
+	
+	$categorias = load_categorias();
+	
+	$categorias_options = array();
+	
+	foreach($categorias as $categoria) {
+		$categorias_options[$categoria['id']] = $categoria['nome'];
+	}
+	
+	$form['criar_post']['categorias']['options'] = $categorias_options;
+	
 	$id = $params[0];
 	
-	$post = load_post($id);
 	$view_params['message'] = get_message();
 	if(isset($_POST['titulo'])) {
 		fill_form($form);
@@ -18,6 +28,7 @@
 			}
 		}
 	} else {
+		$post = load_post($id);
 		fill_form($form, $post);	
 	}
 	

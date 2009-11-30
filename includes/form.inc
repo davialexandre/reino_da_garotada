@@ -136,6 +136,49 @@
 		return $label.$tag;
 	}
 	
+	function render_listbox_element($element, $name) {
+		$label = $attributes = '';
+		
+		if(!isset($element['attributes']['id'])) {
+			$element['attributes']['id'] = $name;
+		}
+		
+		if(isset($element['label'])) {
+			$label = render_label($element['label'], $element['attributes']['id']);
+		}
+		
+		if(isset($element['multiple']) && $element['multiple'] == true) {
+			$name .= '[]';
+			$element['attributes']['multiple'] = 'multiple';
+		}
+		
+		if(!isset($element['attributes']['size'])) {
+			$element['attributes']['size'] = 4;
+		}
+		
+		$attributes = join_tag_attributes($element['attributes']);
+		
+		$tag = '<select name="'.$name.'" '.$attributes.'>';
+		
+		if(!isset($element['selected'])) {
+			$element['selected'] = '';
+		}
+		
+		$element['selected'] = explode(',', $element['selected']);
+		
+		foreach($element['options'] as $value => $option) {
+			$selected = '';
+			if(in_array($value, $element['selected'])) {
+				$selected = 'selected = "selected"';
+			}
+			$tag .= '<option value="'.$value.'" '.$selected.'>'.$option.'</option>';
+		}
+		
+		$tag .= '</select>';
+		
+		return $label.$tag;
+	}
+	
 	
 	/**
 	 * Renderiza uma lista de inputs do tipo radio
@@ -268,6 +311,8 @@
 			switch($element['type']) {
 				case 'dropdownlist':
 					return render_dropdownlist_element($element, $name);
+				case 'listbox':
+					return render_listbox_element($element, $name);
 				case 'radiolist':
 					return render_radiolist_element($element, $name);
 				case 'textarea':
@@ -447,7 +492,8 @@
 								break;
 							case 'radiolist':
 							case 'dropdownlist':
-								$element['selected'] = $form_data[$name];
+							case 'listbox':
+								$element['selected'] = is_array($form_data[$name]) ? implode(',', $form_data[$name]) : $form_data[$name];
 								break;
 							case 'checkbox':
 								if($form_data[$name]) $element['attributes']['checked'] = 'checked';
@@ -561,6 +607,7 @@
 				break;
 			case 'radiolist':
 			case 'dropdownlist':
+			case 'listbox':
 				$value = isset($element['selected']) && $element['selected'] != '' ? trim($element['selected']) : null;
 				break;
 			case 'textarea':

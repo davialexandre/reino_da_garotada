@@ -17,6 +17,7 @@
 	
 	$post = load_post($params[0]);
 	$post['corpo'] = newline_to_br($post['corpo']);
-	$comentarios = load_comments($post['id']);
-	exibe_view(array('post' => $post, 'comentarios' => $comentarios, 'form_comentario' => $form_comentario, 'message' => get_message()));
+	$categorias = load_categorias_post($post['id']);
+	$comentarios = load_post_comments($post['id']);
+	exibe_view(array('post' => $post, 'categorias' => $categorias, 'comentarios' => $comentarios, 'form_comentario' => $form_comentario, 'message' => get_message()));
 ?>

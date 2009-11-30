@@ -8,10 +8,11 @@
 			<thead>
 				<tr>
 					<th>id</th>
-					<th>titulo</th>
-					<th>chamada</th>
-					<th>autor</th>
-					<th>ultima atualizaçao</th>
+					<th>Titulo</th>
+					<th>Chamada</th>
+					<th>Autor</th>
+					<th>Ultima atualizaçao</th>
+					<th>Operaçoes</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -22,6 +23,10 @@
 						<td><?php echo $post['chamada']; ?></td>
 						<td><?php echo $post['id_autor']; ?></td>
 						<td><?php echo date('d/m/Y H:i', $post['ultima_atualizacao'] ? strtotime($post['ultima_atualizacao']) : strtotime($post['data_criacao'])); ?></td>
+						<td>
+							[<a href="index.php?r=post/edit/<?php echo $post['id']; ?>">editar</a>]
+							[<a href="index.php?r=post/delete/<?php echo $post['id']; ?>">apagar</a>]
+						</td>
 					</tr>
 				<?php endforeach; ?>
 			</tbody>
