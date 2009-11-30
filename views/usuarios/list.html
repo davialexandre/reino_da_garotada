@@ -18,7 +18,7 @@
 				<?php foreach($usuario as $usuarios): ?>
 					<tr>
 						<td><?php echo $usuarios['id']; ?></td>
-						<td><a href="index.php?r=usuario/view/<?php echo $usuarios['id']; ?>"><?php echo $usuarios['nome']; ?></a></td>
+						<td><a href="index.php?r=usuarios/edit/<?php echo $usuarios['id']; ?>"><?php echo $usuarios['nome']; ?></a></td>
 						<td><?php echo $usuarios['login']; ?></td>
 						<td><?php echo $usuarios['email']; ?></td>
 						<td><?php echo $usuarios['data_ultimo_acesso']; ?></td>
