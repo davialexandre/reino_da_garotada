@@ -21,10 +21,9 @@
 			$post = form_to_simple_array($form);
 			$post['id_autor'] = 1;
 			
-			if(save_post($post)) {
-				$post['id'] = db_last_insert_id();
+			if($post['id'] = save_post($post)) {
 				set_message('Post criado! <a href="?r=post/view/'. $post['id'] .'" >Clique aqui para visualizar</a>');
-				redireciona_para('post/edit/'.db_last_insert_id());
+				redireciona_para('post/edit/'.$post['id']);
 			} else {
 				$message = 'Não foi possível salvar o post. Tente novamente.';
 			}

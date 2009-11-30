@@ -69,7 +69,11 @@
 			$post['id'] = db_last_insert_id();
 		}
 		
-		return $post_salvo && save_categorias_post($post['id'], $categorias);
+		if($post_salvo && save_categorias_post($post['id'], $categorias)) {
+			return $post['id'];
+		} else {
+			return false;
+		}
 	}
 	
 	function save_categorias_post($id_post, $categorias) {
