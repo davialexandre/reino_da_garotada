@@ -1,18 +1,17 @@
 <?php
 	
-	include 'includes/usuarios.inc';
-	$form = include 'forms/usuarios_form.frm';
-	
+	include 'includes/eventos.inc';
+	$form = include 'forms/eventos_form.frm';
 	$message = '';
-	if(isset($_POST['nome'])) {
+	if(isset($_POST['titulo'])) {
 		fill_form($form);
 		if(validate_form($form)) {
-			$usuarios = form_to_simple_array($form);
-			if(save_usuarios($usuarios)) {
-				set_message('Usuário criado! <a href="?r=usuarios/view/'. db_last_insert_id() .'" >Clique aqui para visualizar</a>');
-				redireciona_para('usuarios/edit/'.db_last_insert_id());
+			$eventos = form_to_simple_array($form);
+			if(save_eventos($eventos)) {
+				set_message('Evento adicionado! <a href="?r=eventos/view/'. db_last_insert_id() .'" >Clique aqui para visualizar</a>');
+				redireciona_para('eventos/edit/'.db_last_insert_id());
 			} else {
-				$message = 'Não foi possível salvar o usuário. Tente novamente.';
+				$message = 'N�o foi poss�vel adicionar o evento. Tente novamente.';
 			}
 		}
 	}
