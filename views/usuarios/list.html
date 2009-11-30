@@ -1,6 +1,6 @@
 <html lang="pt-br">
 	<head>
-		<title>Listagem de Usuários</title>
+		<title>Listagem de Eventos</title>
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	</head>
 	<body>
@@ -8,20 +8,18 @@
 			<thead>
 				<tr>
 					<th>id</th>
-					<th>nome</th>
-					<th>login</th>
-					<th>email</th>
-					<th>ultimo acesso</th>
+					<th>titulo</th>
+					<th>data</th>
+					<th>evento</th>
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach($usuario as $usuarios): ?>
+				<?php foreach($eventos as $evento): ?>
 					<tr>
-						<td><?php echo $usuarios['id']; ?></td>
-						<td><a href="index.php?r=usuarios/edit/<?php echo $usuarios['id']; ?>"><?php echo $usuarios['nome']; ?></a></td>
-						<td><?php echo $usuarios['login']; ?></td>
-						<td><?php echo $usuarios['email']; ?></td>
-						<td><?php echo $usuarios['data_ultimo_acesso']; ?></td>
+						<td><?php echo $evento['id']; ?></td>
+						<td><a href="index.php?r=eventos/edit/<?php echo $evento['id']; ?>"><?php echo $evento['titulo']; ?></a></td>
+						<td><?php echo $evento['data']; ?></td>
+						<td><?php echo $evento['evento']; ?></td>
 					</tr>
 				<?php endforeach; ?>
 			</tbody>
