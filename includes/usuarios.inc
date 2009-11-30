@@ -6,7 +6,7 @@
 		}
 	}
 
-	function load_usuario($id) {
+	function load_usuarios($id) {
 		$sql = 'SELECT * FROM usuario WHERE id = ?';
 		$usuario = db_fetch_row(db_query($sql, array($id)));
 		
