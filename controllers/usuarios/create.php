@@ -9,10 +9,10 @@
 		if(validate_form($form)) {
 			$usuarios = form_to_simple_array($form);
 			if(save_usuarios($usuarios)) {
-				set_message('Usu·rio criado! <a href="?r=usuarios/view/'. db_last_insert_id() .'" >Clique aqui para visualizar</a>');
+				set_message('Usu√°rio criado! <a href="?r=usuarios/view/'. db_last_insert_id() .'" >Clique aqui para visualizar</a>');
 				redireciona_para('usuarios/edit/'.db_last_insert_id());
 			} else {
-				$message = 'N„o foi possÌvel salvar o usu·rio. Tente novamente.';
+				$message = 'N√£o foi poss√≠vel salvar o usu√°rio. Tente novamente.';
 			}
 		}
 	}
