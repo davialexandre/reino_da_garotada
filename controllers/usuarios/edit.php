@@ -13,7 +13,7 @@
 			if(save_usuarios($usuario)) {
 				redireciona_para("usuarios/view/$id");
 			} else {
-				$view_params['message'] .= '<br />Nao foi possivel editar este usu·rio. Tente novamente.<br />' . get_last_error();
+				$view_params['message'] .= '<br />Nao foi possivel editar este usu√°rio. Tente novamente.<br />' . get_last_error();
 			}
 		}
 	} else {

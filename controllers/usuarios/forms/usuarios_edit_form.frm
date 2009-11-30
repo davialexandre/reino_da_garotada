@@ -2,12 +2,12 @@
 	return array(
 		'name' => 'usuarios_form',
 		'editar_usuario' => array(
-			'label' => 'Adicionar Usu·rio: ',
+			'label' => 'Adicionar Usu√°rio: ',
 			'nome' => array(
 				'label' => 'Nome: ',
 				'type' => 'text',
 				'rules' => array(
-					array('type' => 'required', 'message' => 'VocÍ deve informar o nome do usu·rio'),
+					array('type' => 'required', 'message' => 'Voc√™ deve informar o nome do usu√°rio'),
 				)
 			),
 			'label' => 'Login: ',
@@ -15,29 +15,29 @@
 				'label' => 'Login: ',
 				'type' => 'text',
 				'rules' => array(
-					array('type' => 'required', 'message' => 'VocÍ deve informar o login'),
+					array('type' => 'required', 'message' => 'Voc√™ deve informar o login'),
 				)
 			),
 			'email' => array(
 				'label' => 'E-mail: ',
 				'type' => 'text',
 				'rules' => array(
-					array('type' => 'required', 'message' => 'VocÍ deve informar seu endereÁo de e-mail'),
-					array('type' => 'email', 'message' => 'VocÍ deve informar um endereÁo de e-mail v·lido'),
+					array('type' => 'required', 'message' => 'Voc√™ deve informar seu endere√ßo de e-mail'),
+					array('type' => 'email', 'message' => 'Voc√™ deve informar um endere√ßo de e-mail v√°lido'),
 				)
 			),
                         'senha' => array(
 				'label' => 'Senha: ',
 				'type' => 'password',
 				'rules' => array(
-					array('type' => 'required', 'message' => 'VocÍ deve informar uma senha v·lida'),
+					array('type' => 'required', 'message' => 'Voc√™ deve informar uma senha v√°lida'),
 				)
 			),
 		),
                 'submit' => array(
 			'type' => 'submit',
 			'attributes' => array(
-				'value' => 'Editar usu·rio',
+				'value' => 'Editar usu√°rio',
 			)
 		)
 	)
