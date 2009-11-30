@@ -1,8 +1,10 @@
 <?php
 	
 	function save_usuarios($usuario) {
-		if(isset($usuario['nome'])) {
-			return db_save_record('usuario', $usuario);
+		if(isset($usuario['id'])) {
+			return db_update_record('usuario', $usuario, array('id' => $usuario['id']));
+		} else {
+			return db_save_record('usuario', $usuario);	
 		}
 	}
 
