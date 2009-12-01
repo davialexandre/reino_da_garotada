@@ -32,14 +32,14 @@ class CKFinder_Connector_Core_ImagesConfig
      * @var int
      * @access private
      */
-    private $_maxWidth = 0;
+    private $_maxWidth = 200;
     /**
      * Max height for images, 0 to disable resizing
      *
      * @var int
      * @access private
      */
-    private $_maxHeight = 0;
+    private $_maxHeight = 200;
     /**
      * Quality of thumbnails
      *

@@ -182,4 +182,30 @@
 		return implode('&', $params);
 	}
 	
+	function set_breadcrumb($breadcrumb = array()) {
+		static $system_breadcrumb;
+		
+		if(!isset($system_breadcrumb)) {
+			$system_breadcrumb['Home'] = 'index.php';
+		}
+		
+		$system_breadcrumb = array_merge($system_breadcrumb, $breadcrumb);
+		
+		return $system_breadcrumb;
+	}
+	
+	function render_breadcrumb($breadcrumb) {
+		$tag = '<div class="breadcrumb">';
+		$tag .= '</div>';
+		
+		$tag_links = array();
+		foreach($breadcrumb as $item => $link) {
+			$tag_links[] = '<a href="'.$link.'">'.$item.'</a>';
+		}
+		
+		$tag .= implode(' > ', $tag_links);
+		
+		return $tag;
+	}
+	
 ?>

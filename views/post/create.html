@@ -23,6 +23,8 @@
 			<p><?php echo $message; ?></p>
 		</div>
 		<?php endif; ?>
+		<?php $breadcrumb = array_merge(set_breadcrumb(), array('Criar Post' => 'index.php?r=post/create')); ?>
+		<?php echo render_breadcrumb($breadcrumb); ?>
 		<?php echo form_error_summary($form); ?>
 		<?php echo render_form($form); ?>
 	</body>
