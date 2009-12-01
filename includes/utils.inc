@@ -1,4 +1,6 @@
 <?php
+	
+	global $scripts, $inline_scripts;
 
 	/**
 	 * Transforma uma string no formato controller/rota/parametros em um vetor contendo as partes da rota
@@ -101,12 +103,14 @@
 	 * Exibe a view específica para a action atual.
 	 * @param array $variaveis um vetor com as variáveis que serão enviadas para a view
 	 */
-	function exibe_view($variaveis = array()) {
+	function exibe_view($variaveis = array(), $template = 'default') {
 		$rota = resolve_rota();
 		$arquivo_view = 'views'.DIRECTORY_SEPARATOR.$rota['controller'].DIRECTORY_SEPARATOR.$rota['action'].'.html';
 		if(file_exists($arquivo_view)) {
-			extract($variaveis);
-			include $arquivo_view;
+			$content = get_include_contents($arquivo_view, $variaveis);
+			$head_scripts = render_javascript_tag('externo');
+			$title = set_page_title();
+			include "templates/$template.php";
 		} else {
 			mostra_erro_http(404, 'Página não encontrada!');
 		}
@@ -206,6 +210,68 @@
 		$tag .= implode(' > ', $tag_links);
 		
 		return $tag;
+	}
+	
+	function get_include_contents($filename, $variaveis = array()) {
+		if (is_file($filename)) {
+			extract($variaveis);
+			ob_start();
+			include $filename;
+			$contents = ob_get_contents();
+			ob_end_clean();
+			return $contents;
+		}
+		return false;
+	}
+	
+	function add_javascript($javascript, $tipo = 'externo') {
+		global $scripts, $inline_scripts;
+		
+		switch($tipo) {
+			case 'externo':
+				$scripts[] = $javascript;
+				break;
+			case 'inline':
+				$inliden_scripts .= $javascript;
+		}
+	}
+	
+	function render_javascript_tag($tipo) {
+		global $scripts, $inline_scripts;
+		
+		if(!isset($scripts)) {
+			$scripts = array();
+		}
+		
+		$tag = '';
+		
+		switch($tipo) {
+			case 'externo':
+				foreach($scripts as $script_src) {
+					$tag .= '<script type="text/javascript" src="'.$script_src.'"></script>';
+				}
+				break;
+			case 'inline':
+				$tag = '<script type="text/javascript">';
+				$tag .= $inline_scripts;
+				$tag .= '</script>';
+				break;
+		}
+		
+		return $tag;
+	}
+	
+	function set_page_title($title = null) {
+		static $page_title;
+		
+		if(!$title && !isset($page_title)) {
+			$title = 'Reino da Garotada';
+		}
+		if (isset($title)) {
+		  $page_title = $title;
+		}
+		
+		return $page_title;
 	}
 	
 ?>

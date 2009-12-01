@@ -1,53 +1,32 @@
-<!DOCTYPE html PUBLIC
-	"-//W3C//DTD XHTML 1.0 Transitional//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<title>Criar novo post</title>
-		<script type="text/javascript" src="js/ckeditor/ckeditor.js"></script>
-		<link rel="stylesheet" type="text/css" href="css/admin.css" />
-		<style type="text/css">
-			.erro {
-				border: 1px solid #FF0000;
-			}
-			.error_summary {
-				border: 1px solid #FF0000;
-				background-color: #FFAEAE;
-			}
-		</style>
-	</head>
-	<body>
-		<?php if(isset($message) && $message != ''): ?>
-		<div class="message">
-			<p><?php echo $message; ?></p>
-		</div>
-		<?php endif; ?>
-		<?php echo form_error_summary($form); ?>
-		<?php echo render_form($form); ?>
-	</body>
-	<script type="text/javascript">
-		window.onload = function()
-		{
-			CKEDITOR.replace('corpo', {
-				toolbar:  [
-					[
-						'Bold', 'Italic','Underline','Strike', '-',
-						'JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock', '-',
-						'NumberedList', 'BulletedList', '-',
-						'Image', 'Table' ,'-',
-						'Link', 'Unlink','-',
-						'About'
-					]
-				],
-				filebrowserBrowseUrl : 'includes/ckfinder/ckfinder.html',
-				filebrowserImageBrowseUrl : 'includes/ckfinder/ckfinder.html?Type=Images',
-				filebrowserFlashBrowseUrl : 'includes/ckfinder/ckfinder.html?Type=Flash',
-				filebrowserUploadUrl : 'includes/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
-				filebrowserImageUploadUrl : 'includes/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-				filebrowserFlashUploadUrl : 'includes/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
-			});
-			
-		};
-	</script>
-</html>
+<?php if(isset($message) && $message != ''): ?>
+<div class="message">
+	<p><?php echo $message; ?></p>
+</div>
+<?php endif; ?>
+<?php echo form_error_summary($form); ?>
+<?php echo render_form($form); ?>
+
+<script type="text/javascript">
+window.onload = function()
+{
+	CKEDITOR.replace('corpo', {
+		toolbar:  [
+			[
+				'Bold', 'Italic','Underline','Strike', '-',
+				'JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock', '-',
+				'NumberedList', 'BulletedList', '-',
+				'Image', 'Table' ,'-',
+				'Link', 'Unlink','-',
+				'About'
+			]
+		],
+		filebrowserBrowseUrl : 'includes/ckfinder/ckfinder.html',
+		filebrowserImageBrowseUrl : 'includes/ckfinder/ckfinder.html?Type=Images',
+		filebrowserFlashBrowseUrl : 'includes/ckfinder/ckfinder.html?Type=Flash',
+		filebrowserUploadUrl : 'includes/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+		filebrowserImageUploadUrl : 'includes/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+		filebrowserFlashUploadUrl : 'includes/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+	});
+	
+};
+</script>

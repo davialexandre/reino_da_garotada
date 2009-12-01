@@ -16,8 +16,8 @@
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach($posts as $post): ?>
-					<tr>
+				<?php foreach($posts as $n => $post): ?>
+					<tr class="<?php echo $n % 2 ? "impar" : "par"; ?>">
 						<td><?php echo $post['id']; ?></td>
 						<td><a href="index.php?r=post/view/<?php echo $post['id']; ?>"><?php echo $post['titulo']; ?></a></td>
 						<td><?php echo $post['chamada']; ?></td>

@@ -34,5 +34,8 @@
 	
 	$view_params['form'] = $form;
 	
-	exibe_view($view_params);
+	add_javascript('js/ckeditor/ckeditor.js');
+	set_page_title('Editar post | Reino da Garotada');
+	
+	exibe_view($view_params, 'admin');
 ?>

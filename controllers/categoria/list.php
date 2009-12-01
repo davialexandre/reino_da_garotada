@@ -4,7 +4,7 @@
 	if(isset($params[0])) {
 		$categoria = load_categoria($params[0]);
 		$posts = load_posts_categoria($categoria['id']);
-		exibe_view(array('posts' => $posts, 'categoria' => $categoria));
+		exibe_view(array('posts' => $posts, 'categoria' => $categoria), 'admin');
 	} else {
 		mostra_erro_http(404, 'Pagina nao encontrada');
 	}

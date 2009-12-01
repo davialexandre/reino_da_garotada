@@ -9,5 +9,5 @@
 	
 	$pager = create_pager($total_posts, POSTS_PER_PAGE);
 	
-	exibe_view(array('posts' => $posts, 'pager' => $pager));
+	exibe_view(array('posts' => $posts, 'pager' => $pager), 'admin');
 ?>

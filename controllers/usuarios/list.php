@@ -9,5 +9,5 @@
 	
 	$pager = create_pager($total_eventos, 4);
 	
-	exibe_view(array('eventos' => $eventos, 'pager' => $pager));
+	exibe_view(array('eventos' => $eventos, 'pager' => $pager), 'admin');
 ?>

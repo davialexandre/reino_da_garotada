@@ -1,3 +1,3 @@
 <?php
-	exibe_view();
+	exibe_view(array(),'home');
 ?>

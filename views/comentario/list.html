@@ -16,12 +16,12 @@
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach($comentarios as $comentario): ?>
-					<tr>
+				<?php foreach($comentarios as $n => $comentario): ?>
+					<tr class="<?php echo $n % 2 ? "impar" : "par"; ?>">
 						<td><?php echo $comentario['titulo']; ?></td>
 						<td>
-							<p>Autor: <?php echo $comentario['nome_autor']; ?><br />
-							E-mail: <?php echo $comentario['email_autor']; ?><br /></p>
+							Autor: <?php echo $comentario['nome_autor']; ?><br />
+							E-mail: <?php echo $comentario['email_autor']; ?><br />
 						</td>
 						<td><?php echo newline_to_br($comentario['texto']); ?></td>
 						<td><?php echo date('d/m/Y H:i', strtotime($comentario['data_criacao'])); ?></td>

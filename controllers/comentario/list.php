@@ -10,5 +10,5 @@
 	
 	$pager = create_pager($total_comentarios, COMMENTS_PER_PAGE);
 	
-	exibe_view(array('comentarios' => $comentarios, 'pager' => $pager));
+	exibe_view(array('comentarios' => $comentarios, 'pager' => $pager), 'admin');
 ?>

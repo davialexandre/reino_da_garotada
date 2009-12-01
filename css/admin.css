@@ -3,6 +3,9 @@
 	font-size: 12px;
 }
 
+h1 {
+	font-size: 20px;
+}
 form {
 	width: 800px;
 }
@@ -28,4 +31,60 @@ label {
 
 input[type=text], input[type=password], textarea {
 	width: 100%;
+}
+
+#opcoes_administrativas {
+	width: 300px;
+	float: left;
+}
+
+#opcoes_administrativas ul {
+	margin: 0;
+}
+
+#conteudo_admin {
+	width: 900px;
+	float: left;
+}
+
+table {
+	width: 100%;
+	border-collapse:collapse;
+}
+
+table th, table td {
+	padding: 5px;
+}
+
+table td {
+	vertical-align: top;
+}
+
+table thead tr {
+	border-bottom: 2px solid #c0c0c0;
+}
+
+.par {
+	background-color: #e6e6e6;
+}
+
+.pager {
+	text-align: center;
+	width: 100%;
+	list-style-type: none;
+}
+
+.pager li {
+	display: inline;
+	margin-right: 10px;
+	font-weight: bold;
+}
+
+.pager li a {
+	padding: 5px;
+	font-weight: normal;
+}
+
+.pager li a:hover {
+	background-color: #e6e6e6;
 }

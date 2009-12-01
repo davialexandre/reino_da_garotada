@@ -11,16 +11,16 @@ body {
 a{outline:none;	border:0;}
 
 input.submit {
-  background:#37ABC8;
-  color:#fff;
-  font-size:11pt;
+	background:#37ABC8;
+	color:#fff;
+	font-size:11pt;
 }
 
 
 #wrapper {
 	width:960px;
 	margin: 0 auto;
-	height:1500px;
+	height:100%;
 	background-color: #d7eef4;
 }
 #wrapper #header {
@@ -31,26 +31,33 @@ input.submit {
 }
 
 #wrapper #header h1{
-	float:left;
-	position:relative;
-	margin: 8px 5px 0 10px;
+	position:absolute;
+	top:8px;
+	left:10px;
 	background: url(images/logo.png);
 	width: 341px;
 	height: 64px;
 	text-indent:-9999px;
 }
 
-#wrapper #header #menu  li {
-	list-style:none;
-	display: inline;
+#wrapper #header #menu {
+	  position:absolute;
+	  top:20px;
+	  right:12px;
+}
+
+
+
+#wrapper #header ul#menu  li {
+	position:relative;
+	float:left;
 	background: url(images/button.gif) no-repeat; 
+	list-style-type:none;
+	text-align:center;
 	width:113px;
 	height:26px;
-	text-align:center;
-	float:left;
-	position:relative;
-	margin: 21px 0 0 5px;
-	padding-top:2px;
+	margin:0 0 0 4px;
+	padding-top: 4px;
 }
 
 #wrapper #header #menu  li a{
@@ -59,6 +66,39 @@ input.submit {
 	color:#fff;
 	font-weight:bold;
 	font-size: 10pt;
+}
+
+#wrapper #header ul#menu li ul.sub {
+	position:absolute;
+	background: transparent url(images/button.gif) no-repeat bottom left;
+	width:113px;
+	top:22px;
+	left:0;
+	margin:0;
+	padding:0;
+	display:none;
+	padding:0 0 8px 0;
+}
+
+#wrapper #header ul#menu li ul.sub li{
+	background: #37ABC8;
+	width:100%;
+	height:100%;
+	display:block;
+	list-style:none;
+	margin:0;
+	padding-top: 4px;
+}
+#wrapper #header ul#menu li ul.sub li a {
+	font-size: 10px;
+}
+
+#wrapper #header #menu li:hover ul.sub {
+	display:block;
+}
+
+#wrapper #header #menu li:hover ul.sub li:hover {
+	background: blue;
 }
 
 #wrapper #header div#search {
@@ -83,7 +123,7 @@ input.submit {
 	float:left;
 	height:24px;
 	width:92px;
-	margin:1px 0 0 -4px;
+	margin:1px 0 0 -3px;
 	outline:none;
 }
 
@@ -96,10 +136,12 @@ input.submit {
 }
 
 
+
 #wrapper #content{
+	margin-top:20px;
 	position:relative;
 	width:960px;
-	height:1083px;
+	/*height:1083px;*/
 }
 
 #wrapper #content #showcase{
@@ -185,7 +227,8 @@ input.submit {
 	width:186px;
 	height:37px;
 	position:absolute;
-	margin: 18px 0 0 14px;
+	top:18px;
+	left:14px;
 	text-indent:-9999px;
 	cursor:pointer;
 }
@@ -354,7 +397,8 @@ input.submit {
 	width:220px;
 	height:38px;
 	position:absolute;
-	margin: 12px 0 0 14px;
+	top:12px;
+	left:14px;
 	background: url(images/gonewsletter.gif) no-repeat;
 	text-indent:-9999px;
 	cursor:pointer;
@@ -375,33 +419,205 @@ input.submit {
 	width:241px;
 	height:26px;
 	margin:8px 0 0 15px;
+	padding:0;
+	position:relative;
 }
 
 #wrapper #content #newsletter .textemail{
 	margin:5px 0 0 2px;
 	height:19px;
 	width:150px;
-	float:left;
-	border:0px solid;
+	border:0;
+	position:absolute;
+	left:0;
 }
 
 #wrapper #content #newsletter .send{
-	float:left;
 	height:24px;
 	width:92px;
-	margin:1px 0 0 -4px;
+	position:absolute;
+	top:-15px;
+	right:0;
 	outline:none;
 }
 
+#wrapper #general {
+	position:relative;
+}
+
+#wrapper #general #submenu {
+	width:269px;
+	background:#fff;
+	margin: 21px 0 0 20px;	
+	position:relative;
+	padding:15px 0 5px 15px;
+}
+
+/* bordar arredondada */
+#wrapper #general #submenu .rbtop div { background: url(images/tl.gif) no-repeat top left;position:absolute;left:0; top:0; }
+#wrapper #general #submenu .rbtop { background: url(images/tr.gif) no-repeat top right;position:absolute;right:0; top:0; }
+#wrapper #general #submenu .rbbot div { background: url(images/bl.gif) no-repeat bottom left;position:absolute;left:0; bottom:0; }
+#wrapper #general #submenu .rbbot { background: url(images/br.gif) no-repeat bottom right;position:absolute;right:0; bottom:0; }
+
+
+#wrapper #general #submenu .rbtop div, .rbtop, .rbbot div, .rbbot {
+	width: 284px;
+	height: 7px;
+	font-size: 1px;
+}
+
+#wrapper #general #submenu ul{
+	margin-bottom:5px;
+}
+
+#wrapper #general #submenu  li {
+	list-style:none;
+	height:26px;
+	padding-top:2px;
+	margin: 4px 0 0 10px;
+}
+
+#wrapper #general #submenu  li a{
+	text-decoration:none;
+	outline:none;
+	font-size: 11pt;
+	color:#000;
+}
+
+
+#wrapper #general #submenu li:hover {
+	background: url("images/submenulibg.png") no-repeat;
+	padding-left:15px;
+}
+
+#wrapper #general #submenu li:hover a {
+	color: #fff;
+
+}
+
+#wrapper #general #collaborate{
+	background: url(images/collaboratebginter.png) no-repeat;
+	width:284px;
+	height:255px;
+	margin: 21px 0 0 20px;	
+	position:relative;
+}
+
+#wrapper #general #collaborate a h2{
+	background: url(images/collaborate.png) no-repeat;
+	width:140px;
+	height:21px;
+	position:absolute;
+	margin: 18px 0 0 14px;
+	text-indent:-9999px;
+	cursor:pointer;
+}
+
+#wrapper #general #collaborate p.text1 {
+	font-size:13px;
+	padding: 56px 14px 0 17px;
+}
+
+#wrapper #general #collaborate p.text2 {
+	font-size:13px;
+	margin: 17px 14px 0 17px;
+}
+
+#wrapper #general #collaborate a.gocollaborate {
+	background: url(images/button1.png) no-repeat;
+	width:240px;
+	height:26px;
+	position:absolute;
+	margin:18px 0 0 22px;
+	text-align:center;
+	padding-top:5px;
+	font-size:12px;
+	font-weight:bold;
+	text-decoration:none;
+	outline:none;
+	color:#fff;
+}
+
+#wrapper #general #newsletter{
+	background: url(images/newsletterinter.png) no-repeat;
+	width: 284px;
+	height: 170px;
+	margin: 21px 0 113px 20px;	
+	position:relative;
+}
+
+#wrapper #general #newsletter a h2{
+	width:220px;
+	height:38px;
+	position:absolute;
+	top:12px;
+	left:14px;
+	background: url(images/gonewsletter.gif) no-repeat;
+	text-indent:-9999px;
+	cursor:pointer;
+}
+
+#wrapper #general #newsletter p.text{
+	padding: 55px 0 0 15px;
+	font-size:10pt;
+}
+
+#wrapper #general #newsletter p.sign{
+	margin:5px 0 0 15px;
+	font-size:10pt;
+}
+
+#wrapper #general #newsletter div.sendemail{
+	background: url(images/textbox.png) no-repeat;
+	width:241px;
+	height:26px;
+	margin:8px 0 0 15px;
+	padding:0;
+	position:relative;
+}
+
+#wrapper #general #newsletter .textemail{
+	margin:2px 0 0 2px;
+	height:19px;
+	width:150px;
+	border:0;
+	position:absolute;
+	left:0;
+}
+
+#wrapper #general #newsletter .send{
+	height:24px;
+	width:92px;
+	position:absolute;
+	top:-20px;
+	right:1px;
+	outline:none;
+}
+
+#wrapper #general #content {
+	background: url(images/contentbginter.png) no-repeat;
+	width: 617px;
+	/*height: 730px;*/
+	/*overflow: auto*/
+	position:absolute;
+	top:-21px;
+	left:320px;
+}
+
+#wrapper #content {
+	padding-left: 10px;
+	padding-top: 10px;
+}
 #wrapper  #footer{
 	background: url(images/footer.png) no-repeat;
 	width: 960px;
 	height: 155px;
 	position:relative;
+	clear: both;
 }
 
 #wrapper  #footer ul.links{
-	margin-left: 136px;
+	margin-left: 94px;
 	padding-top:5px;
 	color:#fff;
 }
@@ -413,12 +629,20 @@ input.submit {
 	margin: 10px 15px 0 15px;
 }
 
+
 #wrapper  #footer ul li a {
 	text-decoration:none;
 	outline:none;
 	color:#fff;
 	font-weight:bold;
 	font-size: 10pt;
+	border-right:2px solid #fff;
+	padding:0 14px 0 0;
+}
+
+#wrapper  #footer ul li a.last {
+	border:none;
+	padding:0;
 }
 
 #wrapper  #footer p.address{

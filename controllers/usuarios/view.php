@@ -4,6 +4,6 @@
 	
 	$eventos = load_evento($id);
 	
-	exibe_view(array('eventos' => $eventos));
+	exibe_view(array('eventos' => $eventos), 'admin');
 	
 ?>

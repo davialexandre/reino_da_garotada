@@ -30,5 +30,8 @@
 		}
 	}
 	
-	exibe_view(array('form' => $form, 'message' => $message));
+	add_javascript('js/ckeditor/ckeditor.js');
+	set_page_title('Criar novo post | Reino da Garotada');
+	
+	exibe_view(array('form' => $form, 'message' => $message), 'admin');
 ?>
