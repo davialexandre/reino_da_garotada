@@ -3,7 +3,7 @@
 	$form = include 'forms/usuarios_edit_form.frm';
 	$id = $params[0];
 	
-	$usuario = load_usuario($id);
+	$usuarios = load_usuario($id);
 	$view_params['message'] = get_message();
 	if(isset($_POST['nome'])) {
 		fill_form($form);
