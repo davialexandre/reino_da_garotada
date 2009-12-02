@@ -25,6 +25,13 @@
 					      'type' => 'e-mail', 'message' => 'Você deve informar um e-mail válido')
 				)
 			),
+			'senha' => array(
+				'label' => 'Senha: ',
+				'type' => 'password',
+				'rules' => array(
+					array('type' => 'required', 'message' => 'Você deve informar uma senha válida'),
+				)
+			),
 		),
                 'submit' => array(
 			'type' => 'submit',
