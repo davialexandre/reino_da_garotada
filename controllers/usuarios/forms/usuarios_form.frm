@@ -21,8 +21,8 @@
 				'label' => 'E-Mail: ',
 				'type' => 'text',
 				'rules' => array(
-					array('type' => 'required', 'message' => 'Você deve informar detalhes sobre o evento'
-					      'type' => 'e-mail', 'message' => 'Você deve informar um e-mail válido'),
+					array('type' => 'required', 'message' => 'Você deve informar detalhes sobre o evento',
+					      'type' => 'e-mail', 'message' => 'Você deve informar um e-mail válido')
 				)
 			),
 		),
