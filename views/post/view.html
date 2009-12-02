@@ -4,7 +4,7 @@
 </div>
 <?php endif; ?>
 <?php echo form_error_summary($form_comentario); ?>
-<h1><?php echo $post['titulo'] ?></h1>
+<h2><?php echo $post['titulo'] ?></h2>
 <p class="categorias">
 	Categorias: 
 	<?php foreach($categorias as $categoria): ?>
@@ -15,21 +15,29 @@
 <p class="classname">Postado as: <?php echo date('d/m/Y H:i', strtotime($post['data_criacao'])); ?></p>
 <div id="comentarios">
 	<h2>Comentarios</h2>
-	<?php if(empty($comentarios)): ?>
-		<p>Por enquanto, nao ha comentarios para esse post.</p>
+	<?php if(!$post['mostrar_comentarios']): ?>
+		<p>A exibiçao de comentarios nesse post esta desativada.</p>
 	<?php else: ?>
-		<?php foreach($comentarios as $n => $comentario): ?>
-			<div class="comentario">
-				<?php if(isset($comentario['titulo']) && $comentario['titulo'] != ''): ?>
-					<h3><?php echo $comentario['titulo']; ?></h3>
-				<?php endif; ?>
-				<p class="autoria_comentario">
-					Por: <?php echo $comentario['nome_autor']; ?>
-					as <?php echo date('d/m/Y H:i', strtotime($comentario['data_criacao'])); ?>
-				</p>
-				<p class="texto_comentario"><?php echo newline_to_br($comentario['texto']); ?></p>
-			</div>
-		<?php endforeach; ?>	
+		<?php if(empty($comentarios)): ?>
+			<p>Por enquanto, nao ha comentarios para esse post.</p>
+		<?php else: ?>
+			<?php foreach($comentarios as $n => $comentario): ?>
+				<div class="comentario <?php echo $n % 2 ? "par" : "impar"; ?>">
+					<?php if(isset($comentario['titulo']) && $comentario['titulo'] != ''): ?>
+						<h3><?php echo $comentario['titulo']; ?></h3>
+					<?php endif; ?>
+					<p class="autoria_comentario">
+						Por: <?php echo $comentario['nome_autor']; ?>
+						as <?php echo date('d/m/Y H:i', strtotime($comentario['data_criacao'])); ?>
+					</p>
+					<p class="texto_comentario"><?php echo newline_to_br($comentario['texto']); ?></p>
+				</div>
+			<?php endforeach; ?>	
+		<?php endif; ?>	
 	<?php endif; ?>
-	<?php echo render_form($form_comentario); ?>
+	<?php if(!$post['habilitar_comentarios']): ?>
+		<p>Os comentarios estao desativados para esse post.</p>
+	<?php else: ?>
+		<?php echo render_form($form_comentario); ?>
+	<?php endif; ?>
 </div>

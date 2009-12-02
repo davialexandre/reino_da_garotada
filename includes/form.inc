@@ -497,6 +497,7 @@
 								break;
 							case 'checkbox':
 								if($form_data[$name]) $element['attributes']['checked'] = 'checked';
+								else unset($element['attributes']['checked']);
 								break;
 							case 'textarea':
 								$element['texto'] = $form_data[$name];

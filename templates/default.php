@@ -17,13 +17,13 @@
 					<li>
 						<a href="#">Institucional</a>
 						<ul class="sub">
-							<li><a href="#">Histórico</a></li>
-							<li><a href="#">Missão</a></li>
-							<li><a href="#">Inovação</a></li>
-							<li><a href="#">Prêmios</a></li>
-							<li><a href="#">Dados</a></li>
-							<li><a href="#">Diretoria</a></li>
-							<li><a href="#">Fontes / Recursos</a></li>
+							<li><a href="index.php?r=institucional/historico">Histórico</a></li>
+							<li><a href="index.php?r=institucional/missao">Missão</a></li>
+							<li><a href="index.php?r=institucional/inovacao">Inovação</a></li>
+							<li><a href="index.php?r=institucional/premios">Prêmios</a></li>
+							<li><a href="index.php?r=institucional/dados">Dados</a></li>
+							<li><a href="index.php?r=institucional/diretoria">Diretoria</a></li>
+							<li><a href="index.php?r=institucional/fontes">Fontes / Recursos</a></li>
 						</ul>
 					</li>
 					<li>
@@ -59,13 +59,13 @@
 						<div class="rbtop"><div></div></div>
 							<h2>Institucional</h2>
 							<ul>
-								<li><a href="#">Histórico</a></li>
-								<li><a href="#">Missão</a></li>
-								<li><a href="#">Inovação</a></li>
-								<li><a href="#">Prêmios</a></li>
-								<li><a href="#">Dados</a></li>
-								<li><a href="#">Diretoria</a></li>
-								<li><a href="#">Fontes / Recursos</a></li>
+							<li><a href="index.php?r=institucional/historico">Histórico</a></li>
+							<li><a href="index.php?r=institucional/missao">Missão</a></li>
+							<li><a href="index.php?r=institucional/inovacao">Inovação</a></li>
+							<li><a href="index.php?r=institucional/premios">Prêmios</a></li>
+							<li><a href="index.php?r=institucional/dados">Dados</a></li>
+							<li><a href="index.php?r=institucional/diretoria">Diretoria</a></li>
+							<li><a href="index.php?r=institucional/fontes">Fontes / Recursos</a></li>
 							</ul>
 						<div class="rbbot"><div></div></div>
 					</div>
@@ -85,9 +85,11 @@
 						</div>
 					</div>	
 				</div>
-				<div id="content" style="float: left; position: relative; left: 20px; top:0;">
+				<div id="content">
+					<div class="rbtop1"><div></div></div>
 					<?php echo render_breadcrumb(set_breadcrumb()); ?>
 					<?php echo $content; ?>
+					<div class="rbbot1"><div></div></div>
 				</div>
 			</div>
 			<div id="footer">

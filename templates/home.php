@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title>Reino da Garotada de Póa</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>

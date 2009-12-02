@@ -48,7 +48,22 @@
 			'destacado' => array(
 				'label' => 'Destacar no topo da listagem? ',
 				'type' => 'checkbox',
+			),
+			'habilitar_comentarios' => array(
+				'label' => 'Habilitar comentários: ',
+				'type' => 'checkbox',
+				'attributes' => array(
+					'checked' => 'checked',
+				)
+			),
+			'mostrar_comentarios' => array(
+				'label' => 'Mostrar comentários: ',
+				'type' => 'checkbox',
+				'attributes' => array(
+					'checked' => 'checked',
+				)
 			)
+			
 		),
 		'submit' => array(
 			'type' => 'submit',

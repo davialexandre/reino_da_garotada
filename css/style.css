@@ -24,7 +24,7 @@ input.submit {
 	background-color: #d7eef4;
 }
 #wrapper #header {
-  position:relative;
+	position:relative;
 	background: url(images/header.gif) no-repeat;
 	width:100%;
 	height:262px;
@@ -379,7 +379,7 @@ input.submit {
 	outline:none;
 	color:#000;
 	position:absolute;
-	margin: 18px 0 0 44px;
+	margin: 12px 0 0 44px;
 	font-size:12pt;
 	font-weight:bold;
 }
@@ -443,6 +443,9 @@ input.submit {
 
 #wrapper #general {
 	position:relative;
+}
+#wrapper #general #left{
+	float:left;
 }
 
 #wrapper #general #submenu {
@@ -542,7 +545,7 @@ input.submit {
 	background: url(images/newsletterinter.png) no-repeat;
 	width: 284px;
 	height: 170px;
-	margin: 21px 0 113px 20px;	
+	margin: 21px 0 0 20px;	
 	position:relative;
 }
 
@@ -595,30 +598,38 @@ input.submit {
 }
 
 #wrapper #general #content {
-	background: url(images/contentbginter.png) no-repeat;
-	width: 617px;
-	/*height: 730px;*/
-	/*overflow: auto*/
-	position:absolute;
-	top:-21px;
-	left:320px;
+	background:#fff;
+	width: 610px;
+	position:relative;
+	float:left;
+	padding: 10px;
+	margin: 21px 0 0 10px;
 }
 
-#wrapper #content {
-	padding-left: 10px;
-	padding-top: 10px;
+/* bordar arredondada */
+#wrapper #general #content  .rbtop1 div { background: url(images/tl.gif) no-repeat top left;position:absolute;left:0; top:0; }
+#wrapper #general #content  .rbtop1 { background: url(images/tr.gif) no-repeat top right;position:absolute;right:0; top:0; }
+#wrapper #general #content  .rbbot1 div { background: url(images/bl.gif) no-repeat bottom left;position:absolute;left:0; bottom:0; }
+#wrapper #general #content  .rbbot1 { background: url(images/br.gif) no-repeat bottom right;position:absolute;right:0; bottom:0; }
+
+
+#wrapper #general #content  .rbtop1 div, .rbtop1, .rbbot1 div, .rbbot1 {
+	width: 630px;
+	height: 7px;
+	font-size: 1px;
 }
+
 #wrapper  #footer{
 	background: url(images/footer.png) no-repeat;
 	width: 960px;
 	height: 155px;
 	position:relative;
 	clear: both;
+	top:113px;
 }
 
 #wrapper  #footer ul.links{
 	margin-left: 94px;
-	padding-top:5px;
 	color:#fff;
 }
 
@@ -655,4 +666,64 @@ input.submit {
 	margin-left:292px;
 	font-size: 12px;
 	color: #fff;
+}
+
+#content p, .breadcrumb, #content ul {
+	font-size: 12px;
+}
+
+.breadcrumb {
+	margin-bottom: 10px;
+}
+
+p.categorias, p.classname {
+	background-color:#F5F5F5;
+	padding: 3px;
+	margin: 10px 0;
+}
+
+#content h2 {
+	color: #205bb4;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#content img {
+	margin: 10px;
+}
+
+#comentarios {
+	margin-top: 20px;
+}
+
+.comentario {
+		padding: 5px;
+	margin-bottom: 4px;
+}
+
+.comentario .autoria_comentario {
+	font-weight: bold;
+	color: #6D6D6D;
+}
+
+.comentario .texto_comentario {
+	text-indent: 5px;
+}
+
+#comentarios .impar {
+	background-color:#F5F5F5;
+
+	border-top: 1px solid #c0c0c0;
+	border-bottom: 1px solid #c0c0c0;
+}
+
+#comentarios label {
+	display: block;
+}
+
+#comentarios fieldset {
+	background-color: #f5f5f5;
+	border: none;
+	padding: 10px;
+	margin-top: 20px;
 }

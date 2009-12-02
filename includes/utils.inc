@@ -19,7 +19,7 @@
 	 *   </code>
 	 */
 	function resolve_rota() {
-		$rota = filter_input(INPUT_GET, 'r', FILTER_SANITIZE_STRING);
+		$rota = filter_var($_GET['r'], FILTER_SANITIZE_STRING);
 		
 		$partes = explode('/', $rota);
 		$partes_rota = array();
@@ -47,7 +47,16 @@
 			$params = $rota['params'];
 			include $arquivo_action;
 		} else {
-			mostra_erro_http(404, 'Página não encontrada!');
+			$route_params = implode('/', $rota['params']);
+			$alias = implode('/', array_reverse(array_slice($rota,0,2)));
+			$alias .= implode('/', $rota['params']);
+			$rota = get_alias_route($alias);
+			if($rota) {
+				$_GET['r'] = $rota;
+				executa_rota(resolve_rota());
+			} else {
+				mostra_erro_http(404, 'Página não encontrada!');
+			}
 		}
 	}
 	
@@ -106,6 +115,7 @@
 	function exibe_view($variaveis = array(), $template = 'default') {
 		$rota = resolve_rota();
 		$arquivo_view = 'views'.DIRECTORY_SEPARATOR.$rota['controller'].DIRECTORY_SEPARATOR.$rota['action'].'.html';
+		
 		if(file_exists($arquivo_view)) {
 			$content = get_include_contents($arquivo_view, $variaveis);
 			$head_scripts = render_javascript_tag('externo');
@@ -190,7 +200,7 @@
 		static $system_breadcrumb;
 		
 		if(!isset($system_breadcrumb)) {
-			$system_breadcrumb['Home'] = 'index.php';
+			$system_breadcrumb['Página Inicial'] = 'index.php';
 		}
 		
 		$system_breadcrumb = array_merge($system_breadcrumb, $breadcrumb);
@@ -200,7 +210,7 @@
 	
 	function render_breadcrumb($breadcrumb) {
 		$tag = '<div class="breadcrumb">';
-		$tag .= '</div>';
+		
 		
 		$tag_links = array();
 		foreach($breadcrumb as $item => $link) {
@@ -208,6 +218,7 @@
 		}
 		
 		$tag .= implode(' > ', $tag_links);
+		$tag .= '</div>';
 		
 		return $tag;
 	}
@@ -274,4 +285,9 @@
 		return $page_title;
 	}
 	
+	function get_alias_route($alias) {
+		$sql = 'SELECT route FROM route_alias WHERE alias = ?';
+		$alias_route = db_fetch_column(db_query($sql, array($alias)));
+		return $alias_route;
+	}
 ?>
