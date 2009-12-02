@@ -3,7 +3,7 @@
 	$form = include 'forms/eventos_edit_form.frm';
 	$id = $params[0];
 	
-	$evento = load_eventos($id);
+	$eventos = load_eventos($id);
 	$view_params['message'] = get_message();
 	if(isset($_POST['titulo'])) {
 		fill_form($form);
