@@ -1,34 +1,34 @@
 <?php
 	return array(
-		'name' => 'eventos_form',
-		'adicionar_evento' => array(
-			'label' => 'Adicionar Evento: ',
-			'titulo' => array(
-				'label' => 'TÃ­tulo: ',
+		'name' => 'usuarios_form',
+		'adicionar_usuarios' => array(
+			'label' => 'Adicionar Usuários: ',
+			'nome' => array(
+				'label' => 'Nome: ',
 				'type' => 'text',
 				'rules' => array(
-					array('type' => 'required', 'message' => 'VocÃª deve informar o tÃ­tulo do evento'),
+					array('type' => 'required', 'message' => 'Você deve informar o nome do usuário'),
 				)
 			),
-			'data' => array(
-				'label' => 'Data: ',
+			'login' => array(
+				'label' => 'Login: ',
 				'type' => 'text',
 				'rules' => array(
-					array('type' => 'required', 'message' => 'VocÃª deve informar a data do evento'),
+					array('type' => 'required', 'message' => 'Você deve informar o login do usuário'),
 				)
 			),
 			'evento' => array(
 				'label' => 'Evento: ',
 				'type' => 'text',
 				'rules' => array(
-					array('type' => 'required', 'message' => 'VocÃª deve informar detalhes sobre o evento'),
+					array('type' => 'required', 'message' => 'Você deve informar detalhes sobre o evento'),
 				)
 			),
 		),
                 'submit' => array(
 			'type' => 'submit',
 			'attributes' => array(
-				'value' => 'Adicionar evento',
+				'value' => 'Editar evento',
 			)
 		)
 	)
