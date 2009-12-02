@@ -1,26 +1,26 @@
 <?php
-	include_once 'includes/usuarios.inc';
-	$form = include 'forms/usuarios_edit_form.frm';
+	include_once 'includes/eventos.inc';
+	$form = include 'forms/eventos_edit_form.frm';
 	$id = $params[0];
 	
-	$usuarios = load_usuario($id);
+	$eventos = load_evento($id);
 	$view_params['message'] = get_message();
-	if(isset($_POST['nome'])) {
+	if(isset($_POST['titulo'])) {
 		fill_form($form);
 		if(validate_form($form)) {
-			$usuarios = form_to_simple_array($form);
-			$usuarios['id'] = $id;
-			if(save_usuarios($usuarios)) {
-				redireciona_para("usuarios/list");
+			$eventos = form_to_simple_array($form);
+			$eventos['id'] = $id;
+			if(save_eventos($eventos)) {
+				redireciona_para("eventos/list");
 			} else {
-				$view_params['message'] .= '<br />Nao foi possivel editar este usuário. Tente novamente.<br />' . get_last_error();
+				$view_params['message'] .= '<br />Nao foi possivel editar este evento. Tente novamente.<br />' . get_last_error();
 			}
 		}
 	} else {
-		fill_form($form, $usuarios);	
+		fill_form($form, $eventos);	
 	}
 	
 	$view_params['form'] = $form;
 	
-	exibe_view($view_params,'admin');
+	exibe_view(($view_params), 'admin');
 ?>
