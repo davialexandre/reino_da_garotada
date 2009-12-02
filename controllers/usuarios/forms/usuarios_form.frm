@@ -32,5 +32,5 @@
 				'value' => 'Adicionar usuário',
 			)
 		)
-	)
+	);
 ?>
