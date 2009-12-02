@@ -9,5 +9,5 @@
 	
 	$pager = create_pager($total_usuarios, 4);
 	
-	exibe_view(array('usuarios' => $usuarios, 'pager' => $pager));
+	exibe_view(array('form' => $form, 'usuarios' => $usuarios, 'pager' => $pager));
 ?>
