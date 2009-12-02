@@ -22,5 +22,5 @@
 	
 	$view_params['form'] = $form;
 	
-	exibe_view($view_params);
+	exibe_view($view_params,'admin');
 ?>
