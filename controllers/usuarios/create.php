@@ -16,6 +16,6 @@
 		}
 	}
 	
-	exibe_view(array('form' => $form, 'message' => $message, 'admin'));
+	exibe_view(array('form' => $form, 'message' => $message), 'admin');
 	
 ?>
