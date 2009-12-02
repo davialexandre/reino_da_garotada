@@ -21,8 +21,8 @@
 			</ul>
 			<h3>Eventos</h3>
 			<ul>
-				<li><a href="#">Cadastrar Evento</a></li>
-				<li><a href="#">Listar Eventos</a></li>
+				<li><a href="index.php?r=eventos/create">Cadastrar Evento</a></li>
+				<li><a href="index.php?r=eventos/list">Listar Eventos</a></li>
 			</ul>
 			<h3>Usuarios</h3>
 			<ul>
