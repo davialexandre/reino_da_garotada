@@ -4,7 +4,7 @@
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	</head>
 	<body>
-		<table>
+		<table width="100%">
 			<thead>
 				<tr>
 					<th>id</th>
@@ -16,10 +16,10 @@
 			<tbody>
 				<?php foreach($usuarios as $usuario): ?>
 					<tr>
-						<td><?php echo $usuario['nome']; ?></td>
-						<td><a href="index.php?r=usuarios/edit/<?php echo $usuario['id']; ?>"><?php echo $usuario['nome']; ?></a></td>
-						<td><?php echo $usuario['login']; ?></td>
-						<td><?php echo $usuario['email']; ?></td>
+						<td align="center"><?php echo $usuario['nome']; ?></td>
+						<td align="center"><a href="index.php?r=usuarios/edit/<?php echo $usuario['id']; ?>"><?php echo $usuario['nome']; ?></a></td>
+						<td align="center"><?php echo $usuario['login']; ?></td>
+						<td align="center"><?php echo $usuario['email']; ?></td>
 					</tr>
 				<?php endforeach; ?>
 			</tbody>
