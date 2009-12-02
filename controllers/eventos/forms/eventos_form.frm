@@ -2,7 +2,7 @@
 	return array(
 		'name' => 'adicionar_eventos',
 		'adicionar_eventos' => array(
-			'label' => 'Adicionar Eventos: ',
+			'label' => 'Eventos: ',
 			'titulo' => array(
 				'label' => 'Título: ',
 				'type' => 'text',
