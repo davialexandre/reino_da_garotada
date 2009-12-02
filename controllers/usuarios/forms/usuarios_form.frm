@@ -2,33 +2,34 @@
 	return array(
 		'name' => 'usuarios_form',
 		'adicionar_usuarios' => array(
-			'label' => 'Adicionar Usu·rios: ',
+			'label' => 'Adicionar Usu√°rios: ',
 			'nome' => array(
 				'label' => 'Nome: ',
 				'type' => 'text',
 				'rules' => array(
-					array('type' => 'required', 'message' => 'VocÍ deve informar o nome do usu·rio'),
+					array('type' => 'required', 'message' => 'Voc√™ deve informar o nome do usu√°rio'),
 				)
 			),
 			'login' => array(
 				'label' => 'Login: ',
 				'type' => 'text',
 				'rules' => array(
-					array('type' => 'required', 'message' => 'VocÍ deve informar o login do usu·rio'),
+					array('type' => 'required', 'message' => 'Voc√™ deve informar o login do usu√°rio'),
 				)
 			),
-			'evento' => array(
-				'label' => 'Evento: ',
+			'email' => array(
+				'label' => 'E-Mail: ',
 				'type' => 'text',
 				'rules' => array(
-					array('type' => 'required', 'message' => 'VocÍ deve informar detalhes sobre o evento'),
+					array('type' => 'required', 'message' => 'Voc√™ deve informar detalhes sobre o evento'
+					      'type' => 'e-mail', 'message' => 'Voc√™ deve informar um e-mail v√°lido'),
 				)
 			),
 		),
                 'submit' => array(
 			'type' => 'submit',
 			'attributes' => array(
-				'value' => 'Editar evento',
+				'value' => 'Adicionar usu√°rio',
 			)
 		)
 	)
