@@ -1,0 +1,26 @@
+<p>Um alias e um nome alternativo para uma rota. Cada rota pode ter quantos endereços alternativos forem necessarios</p>
+<?php echo form_error_summary($form); ?>
+<?php echo render_form($form); ?>
+
+<table>
+<thead>
+	<tr>
+		<th>id</th>
+		<th>Rota</th>
+		<th>Alias</th>
+		<th>Operaçoes</th>
+	</tr>
+</thead>
+<tbody>
+	<?php foreach($aliases as $n => $alias): ?>
+		<tr class="<?php echo $n % 2 ? "impar" : "par"; ?>">
+			<td><?php echo $alias['id']; ?></td>
+			<td><?php echo $alias['route']; ?></td>
+			<td><?php echo $alias['alias']; ?></td>
+			<td>
+				[<a href="index.php?r=route/delete_alias/<?php echo $alias['id']; ?>">apagar</a>]
+			</td>
+		</tr>
+	<?php endforeach; ?>
+</tbody>
+</table>
