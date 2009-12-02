@@ -2,7 +2,7 @@
 	return array(
 		'name' => 'adicionar_eventos_form',
 		'adicionar_eventos' => array(
-			'label' => 'Editar Eventos: ',
+			'label' => 'Adicionar Eventos: ',
 			'titulo' => array(
 				'label' => 'Título: ',
 				'type' => 'text',
