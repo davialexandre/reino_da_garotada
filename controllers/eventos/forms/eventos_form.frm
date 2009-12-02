@@ -1,6 +1,6 @@
 <?php
 	return array(
-		'name' => 'adicionar_eventos_form',
+		'name' => 'adicionar_eventos',
 		'adicionar_eventos' => array(
 			'label' => 'Adicionar Eventos: ',
 			'titulo' => array(
