@@ -8,18 +8,18 @@
 			<thead>
 				<tr>
 					<th>id</th>
-					<th>titulo</th>
-					<th>data</th>
-					<th>evento</th>
+					<th>nome</th>
+					<th>login</th>
+					<th>e-mail</th>
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach($eventos as $evento): ?>
+				<?php foreach($usuarios as $usuario): ?>
 					<tr>
-						<td><?php echo $evento['id']; ?></td>
-						<td><a href="index.php?r=eventos/edit/<?php echo $evento['id']; ?>"><?php echo $evento['titulo']; ?></a></td>
-						<td><?php echo $evento['data']; ?></td>
-						<td><?php echo $evento['evento']; ?></td>
+						<td><?php echo $usuario['nome']; ?></td>
+						<td><a href="index.php?r=usuarios/edit/<?php echo $usuario['id']; ?>"><?php echo $usuario['nome']; ?></a></td>
+						<td><?php echo $usuario['login']; ?></td>
+						<td><?php echo $usuario['email']; ?></td>
 					</tr>
 				<?php endforeach; ?>
 			</tbody>
