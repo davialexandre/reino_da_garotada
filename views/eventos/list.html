@@ -1,0 +1,29 @@
+<html lang="pt-br">
+	<head>
+		<title>Listagem de Eventos</title>
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	</head>
+	<body>
+		<table>
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>titulo</th>
+					<th>data</th>
+					<th>evento</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php foreach($eventos as $evento): ?>
+					<tr>
+						<td><?php echo $evento['id']; ?></td>
+						<td><a href="index.php?r=eventos/edit/<?php echo $evento['id']; ?>"><?php echo $evento['titulo']; ?></a></td>
+						<td><?php echo $evento['data']; ?></td>
+						<td><?php echo $evento['evento']; ?></td>
+					</tr>
+				<?php endforeach; ?>
+			</tbody>
+		</table>
+		<?php echo $pager; ?>
+	</body>
+</html>

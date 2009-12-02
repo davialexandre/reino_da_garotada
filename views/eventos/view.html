@@ -1,0 +1,29 @@
+<html lang="pt-br">
+	<head>
+		<title>View</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<link rel="stylesheet" type="text/css" href="css/admin.css" />
+		<style type="text/css">
+			.erro {
+				border: 1px solid #FF0000;
+			}
+			.error_summary {
+				border: 1px solid #FF0000;
+				background-color: #FFAEAE;
+			}
+		</style>
+	</head>
+	<body>
+		<?php if(isset($message) && $message != ''): ?>
+		<div class="message">
+			<p><?php echo $message; ?></p>
+		</div>
+		<?php endif; ?>
+		<h1><?php echo $eventos['titulo'] ?></h1>
+		<p class=""><?php echo $eventos['data'] ?></p>
+		<p class=""><?php echo $eventos['evento'] ?></p>
+		<?php echo render_form($form_comentario); ?>
+		<br><br><a href="?r=eventos/list">voltar para a listagem dos eventos</a>
+		</div>
+	</body>
+</html>
