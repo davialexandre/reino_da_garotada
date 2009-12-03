@@ -24,5 +24,5 @@
 	
 	$menu = get_menu();
 	
-	exibe_view(array('form' => $form, 'menu_itens' => $item_superior_options, 'message' => get_message(), 'menu' => $menu));
+	exibe_view(array('form' => $form, 'menu_itens' => $item_superior_options, 'message' => get_message(), 'menu' => $menu), 'admin');
 ?>

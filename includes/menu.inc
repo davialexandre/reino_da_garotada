@@ -40,19 +40,26 @@
 	}
 	
 	function render_menu($menu, $show_admin_links = false) {
+		static $class;
+		
+		$class = isset($class) ? $class : '';
+		
         $tag = '';
         if(!empty($menu)) {
-            $tag = '<ul>';
+            $tag = '<ul id="menu" class="'. $class .'"><li>';
             foreach($menu['children'] as $submenu) {
+				$class='sub';
 				if($show_admin_links) $admin_link = ' -  [<a href="index.php?r=menu/delete_item/' . $submenu['id'] . '">apagar</a>] ';
 				else $admin_link = '';
-                $tag .= '<li><a href="'. $submenu['endereco'] .'">' . $submenu['titulo'] . '</a> ' . $admin_link . '</li>';
+                $tag .= '<a href="'. $submenu['endereco'] .'">' . $submenu['titulo'] . '</a> ' . $admin_link . '';
                 if(!empty($submenu['children'])) {
-                    $tag .= '<li>';
+                    $tag .= '';
                     $tag .= render_menu($submenu, $show_admin_links);
-                    $tag .= '</li>';
+                    $tag .= '';
+					$tag .= '</li>';
                 }
             }
+			$class='';
             $tag .= '</ul>';
         }
 		

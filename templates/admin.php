@@ -19,6 +19,10 @@
 				<li><a href="index.php?r=categoria/create">Administrar categorias</a></li>
 				<li><a href="index.php?r=comentario/list">Administrar comentarios</a></li>
 			</ul>
+			<h3>Menu</h3>
+			<ul>
+				<li><a href="index.php?r=menu/add_item">Administrar Menu</a></li>
+			</ul>
 			<h3>Eventos</h3>
 			<ul>
 				<li><a href="index.php?r=eventos/create">Cadastrar Evento</a></li>

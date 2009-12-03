@@ -13,7 +13,8 @@
 		<div id="wrapper">
 			<div id="header">
 				<a href="#"><h1>Reino da Garotada</h1></a>
-				<ul id="menu">
+				<?php echo render_menu(get_menu()); ?>
+				<!-- <ul id="menu">
 					<li>
 						<a href="#">Institucional</a>
 						<ul class="sub">
@@ -47,7 +48,7 @@
 					</li>
 					<li><a href="#">Fale Conosco</a></li>
 					<li><a href="#">Como ajudar?</a></li>
-				</ul>
+				</ul> -->
 			<div id="search">
 				<input type="text" name="textsearch" id="textsearch" value="O que está procurando?" class="textsearch" />
 				<input type="image" name="search" id="search" src="css/images/buttonsearch.png"  class="submit" />
