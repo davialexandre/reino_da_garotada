@@ -1,0 +1,11 @@
+<h2>Eventos do Reino da Garotada de Poa</h2>
+<?php foreach($eventos as $evento): ?>
+	<div class="event" style="margin-bottom: 10px;">
+		<span style="font-size: 14px; font-weight: bold">
+			Dia <?php echo strftime('%e de %B', strtotime($evento['data'])); ?>:
+			<h4 class="title" style="display: inline"> <?php echo $evento['titulo']; ?></h4>
+		</span>
+		<p class="text"><?php echo $evento['evento']; ?></p>
+	</div>
+<?php endforeach; ?>
+<?php echo $pager; ?>
