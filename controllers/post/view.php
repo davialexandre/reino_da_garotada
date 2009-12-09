@@ -19,7 +19,7 @@
 	
 	if(isset($post['id'])) {
 		set_page_title($post['titulo'] . ' | Reino da Garotada');
-		$post['corpo'] = newline_to_br($post['corpo']);
+		$post['corpo'] = $post['corpo'];
 		$categorias = load_categorias_post($post['id']);
 		$comentarios = load_post_comments($post['id']);
 		exibe_view(array('post' => $post, 'categorias' => $categorias, 'comentarios' => $comentarios, 'form_comentario' => $form_comentario, 'message' => get_message()));	

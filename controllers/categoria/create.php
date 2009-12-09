@@ -1,4 +1,5 @@
 <?php
+	valida_acesso_admin();
 	include_once 'includes/posts.inc';
 	
 	$form = include 'forms/form_categoria.frm';

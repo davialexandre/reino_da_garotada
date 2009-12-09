@@ -1,12 +1,13 @@
 <?php
 	
-	define('EVENTOS_PER_PAGE', 10);
+	define('EVENTOS_PER_PAGE', 40);
         
-	function save_eventos($eventos) {
-		if(isset($eventos['id'])) {
-			return db_update_record('eventos', $eventos, array('id' => $eventos['id']));
+	function save_evento($evento) {
+		$evento['data'] = date('Y-m-d', strtotime(str_replace('/', '.', $evento['data'])));
+		if(isset($evento['id'])) {
+			return db_update_record('eventos', $evento, array('id' => $evento['id']));
 		} else {
-			return db_save_record('eventos', $eventos);	
+			return db_save_record('eventos', $evento);	
 		}
 	}
 
@@ -25,7 +26,7 @@
 		}
 		$fields = $full ? '*' : 'id, titulo, data, evento';
 		
-		$sql = "SELECT $fields FROM eventos $where_clause";
+		$sql = "SELECT $fields FROM eventos $where_clause ORDER BY data DESC";
 		
 		$eventos = db_fetch_all(db_query_range($sql, $from, $count));
 

@@ -21,27 +21,32 @@
 	
 	function load_posts($from = 0, $count = POSTS_PER_PAGE, $conditions = null, $full = true) {
 		$where_clause = '';
-		$params = array();
 		if(is_array($conditions)) {
 			$where_clause = 'WHERE ' . implode(' ', $conditions);
 		}
 		$fields = $full ? '*' : 'id, titulo, chamada, id_autor, data_atualizacao';
 		
-		$sql = "SELECT $fields FROM post $where_clause";
+		$sql = "SELECT $fields FROM post $where_clause ORDER BY destacado DESC, data_criacao DESC";
 		
 		$posts = db_fetch_all(db_query_range($sql, $from, $count));
 
 		return $posts;
 	}
 	
-	function load_posts_categoria($id_categoria) {
-		$ids_posts = array();
-		$result = db_query('SELECT id_post FROM categoria_post WHERE id_categoria = ?', array($id_categoria));
-		while($id_post = db_fetch_column($result)) {
-			$ids_posts[] = $id_post;
+	function load_posts_categoria($id_categoria, $from = 0, $count = POSTS_PER_PAGE, $conditions = null, $full = true) {
+		$where_clause = '';
+		$conditions[] = 'c.id_categoria = ?';
+		if(is_array($conditions)) {
+			$where_clause = implode(' AND ', $conditions);
 		}
 		
-		$posts = db_fetch_all(db_query('SELECT * FROM post WHERE id IN('.implode(',', $ids_posts).')'));
+		$fields = $full ? 'p.*' : 'p.id, p.titulo, p.chamada, p.id_autor, p.data_atualizacao';
+		
+		$sql = "SELECT $fields FROM categoria_post c INNER JOIN post p ON p.id = c.id_post";
+		$sql .= ' WHERE ' . $where_clause;
+		$sql .= ' ORDER BY p.destacado DESC, p.data_criacao DESC';
+		
+		$posts = db_fetch_all(db_query_range($sql, $from, $count, array($id_categoria)));
 		
 		return $posts;
 	}
@@ -126,9 +131,6 @@
 		$result = db_query($sql);
 		$categorias = array();
 		$categorias = db_fetch_all($result);
-		/*while($categoria = db_fetch_row($result)) {
-			$categorias[$categoria['id']] = $categoria['nome'];
-		}*/
 		
 		return $categorias;
 	}

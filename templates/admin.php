@@ -5,11 +5,15 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<title><?php echo $title; ?></title>
+		<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+		<script type="text/javascript" src="js/admin.js"></script>
 		<?php echo $head_scripts; ?>
 		<link rel="stylesheet" type="text/css" href="css/admin.css" />
 		<link rel="stylesheet" type="text/css" href="css/forms.css" />
+		<link rel="stylesheet" type="text/css" href="js/jquery-ui/themes/ui-lightness/jquery-ui-1.7.2.custom.css" />
 	</head>
 	<body>
+		<p>Olá <?php echo $_SESSION['nome_usuario']; ?> - [<a href="index.php?r=site/logout">sair</a>]</p>
 		<h1>Área Administrativa - http://reinodagarotada.org.br</h1>
 		<div id="opcoes_administrativas">
 			<h3>Post</h3>
@@ -22,6 +26,10 @@
 			<h3>Menu</h3>
 			<ul>
 				<li><a href="index.php?r=menu/add_item">Administrar Menu</a></li>
+			</ul>
+			<h3>Rotas</h3>
+			<ul>
+				<li><a href="index.php?r=route/add_alias">Gerenciar alias de rotas</a></li>
 			</ul>
 			<h3>Eventos</h3>
 			<ul>

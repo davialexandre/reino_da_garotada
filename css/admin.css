@@ -7,7 +7,7 @@ h1 {
 	font-size: 20px;
 }
 form {
-	width: 800px;
+	/*width: 800px;*/
 }
 
 fieldset {
@@ -87,4 +87,11 @@ table thead tr {
 
 .pager li a:hover {
 	background-color: #e6e6e6;
+}
+
+.message {
+	background-color: #F7FFAC;
+	border: 1px solid #FFD200;
+	padding: 10px;
+	margin: 10px;
 }

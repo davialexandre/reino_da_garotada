@@ -1,5 +1,5 @@
 <?php
-	
+	valida_acesso_admin();
 	define('COMMENTS_PER_PAGE', 20);
 
 	$sql = "SELECT c.*, p.titulo as 'titulo_post' FROM comentario c INNER JOIN post p ON c.id_post = p.id ORDER BY c.data_criacao DESC";

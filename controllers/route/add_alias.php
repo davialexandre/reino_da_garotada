@@ -1,4 +1,5 @@
 <?php
+	valida_acesso_admin();
 	
 	$form = include_once('forms/add_alias_form.frm');
 	

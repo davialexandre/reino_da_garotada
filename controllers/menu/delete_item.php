@@ -1,4 +1,5 @@
 <?php
+	valida_acesso_admin();
 	if(isset($params[0]) && is_numeric($params[0])) {
 		if(db_query('DELETE FROM item_menu WHERE id = ?', array($params[0]))) {
 			redireciona_para('menu/add_item');

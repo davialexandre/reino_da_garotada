@@ -1,4 +1,6 @@
 <?php
+	valida_acesso_admin();
+	
 	include_once 'includes/posts.inc';
 	
 	$total_posts = db_fetch_column(db_query('SELECT COUNT(id) FROM post'));

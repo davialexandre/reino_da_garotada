@@ -12,69 +12,35 @@
 	<body>
 		<div id="wrapper">
 			<div id="header">
-				<a href="#"><h1>Reino da Garotada</h1></a>
+				<a href="index.php"><h1>Reino da Garotada</h1></a>
 				<?php echo render_menu(get_menu()); ?>
-				<!-- <ul id="menu">
-					<li>
-						<a href="#">Institucional</a>
-						<ul class="sub">
-							<li><a href="index.php?r=institucional/historico">Histórico</a></li>
-							<li><a href="index.php?r=institucional/missao">Missão</a></li>
-							<li><a href="index.php?r=institucional/inovacao">Inovação</a></li>
-							<li><a href="index.php?r=institucional/premios">Prêmios</a></li>
-							<li><a href="index.php?r=institucional/dados">Dados</a></li>
-							<li><a href="index.php?r=institucional/diretoria">Diretoria</a></li>
-							<li><a href="index.php?r=institucional/fontes">Fontes / Recursos</a></li>
-						</ul>
-					</li>
-					<li>
-						<a href="#">Programas</a>
-						<ul class="sub">
-							<li><a href="#">Creche 0/6 anos</a></li>
-							<li><a href="#">Centro de Juventude</a></li>
-							<li><a href="#">Oficinas Escola 14/17 anos</a></li>
-							<li><a href="#">Projeto Tear</a></li>
-							<li><a href="#">Integração / Comunidade</a></li>
-							<li><a href="#">Avaliação do Programa</a></li>
-							<li><a href="#">Critérios de Seleção</a></li>
-						</ul>
-					</li>
-					<li>
-						<a href="#">Novidades</a>
-						<ul class="sub">
-							<li><a href="#">Boletim</a></li>
-							<li><a href="#">Novas do Reino</a></li>
-						</ul>
-					</li>
-					<li><a href="#">Fale Conosco</a></li>
-					<li><a href="#">Como ajudar?</a></li>
-				</ul> -->
 			<div id="search">
-				<input type="text" name="textsearch" id="textsearch" value="O que está procurando?" class="textsearch" />
-				<input type="image" name="search" id="search" src="css/images/buttonsearch.png"  class="submit" />
+				<form id="search-theme-form" method="get" action="http://www.google.com/custom">
+				    <input type="text" id="textsearch" value="O que está procurando?" name="q" class="textsearch"/>
+					<input type="image" name="search" id="search" src="css/images/buttonsearch.png"  class="submit" />
+				    <input type="hidden" value="reinodagarotada.org.br" name="domains"/>
+					<input type="hidden" id="ss1" value="reinodagarotada.org.br" name="sitesearch"/>
+				    <input type="hidden" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:36546c;ALC:000000;LC:000000;T:0000FF;GFNT:0000FF;GIMP:0000FF;LH:47;LW:236;L:http://davialexandre.com.br/uninove/reinodagarotada/css/images/logo.png;S:http://reinodagarotada.org.br;FORID:1" name="cof"/>
+				    <input type="hidden" value="pt" name="hl"/>
+				</form>
 			</div> 
 			</div>
 			<div id="general">	
 				<div id="barra_lateral" style="float: left">
+					<?php $request_route = implode('/',array_slice(explode('/', $_REQUEST['r']), 0, 2)); ?>
+					<?php $submenu = render_menu(get_parent_item(get_menu(), 'index.php?r='.$request_route), false); ?>
+					<?php if($submenu): ?>
 					<div id="submenu">
 						<div class="rbtop"><div></div></div>
-							<h2>Institucional</h2>
-							<ul>
-							<li><a href="index.php?r=institucional/historico">Histórico</a></li>
-							<li><a href="index.php?r=institucional/missao">Missão</a></li>
-							<li><a href="index.php?r=institucional/inovacao">Inovação</a></li>
-							<li><a href="index.php?r=institucional/premios">Prêmios</a></li>
-							<li><a href="index.php?r=institucional/dados">Dados</a></li>
-							<li><a href="index.php?r=institucional/diretoria">Diretoria</a></li>
-							<li><a href="index.php?r=institucional/fontes">Fontes / Recursos</a></li>
-							</ul>
+							<?php echo $submenu; ?>
 						<div class="rbbot"><div></div></div>
 					</div>
+					<?php endif; ?>
 					<div id="collaborate">
 							<a href="#"><h2>Colabore</h2></a>
 							<p class="text1">A procura por vagas no Reino da Garotada de Poá é enorme. A fila de espera chega a 700 crianças e adolescentes, ou seja, <b>seria preciso dobrar a nossa capacidade</b> para quetodos possam ter acesso ao nosso atendimento.</p>
 							<p class="text2">Colabore e dê um futuro melhor para essas crianças:</p>
-							<a class="gocollaborate" href="#">EU QUERO COLABORAR!</a>
+							<a class="gocollaborate" href="index.php?r=site/colabore">EU QUERO COLABORAR!</a>
 					</div>
 					<div id="newsletter">
 						<a href="#"><h2>Newsletter</h2></a>
@@ -96,11 +62,10 @@
 			<div id="footer">
 				<ul class="links">
 					<li><a href="#">voltar para o topo</a></li>
-					<li><a href="#">como ajudar?</a></li>
-					<li><a href="#">termos de uso</a></li>
-					<li><a href="#">política de privacidade</a></li>
-					<li><a href="#">contato</a></li>
-					<li><a href="#" class="last">rss</a></li>
+					<li><a href="index.php?r=site/colabore">como ajudar?</a></li>
+					<li><a href="index.php?r=site/termos">termos de uso</a></li>
+					<li><a href="index.php?r=site/fale_conosco">contato</a></li>
+					<li><a href="index.php?r=site/rss" class="last">rss</a></li>
 				</ul>
 				<p class="address">Rua Padre Eustáquio, 347 &nbsp;-&nbsp; Vila Archimedes &nbsp;-&nbsp; Poá/SP - Cep: 08562-400<br />
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Telefones: (11) 4638-2466 - Fax: (11) 4638-3444</p>
@@ -108,4 +73,19 @@
 			</div>
 		</div>
 	</body>
+	<script type="text/javascript">
+	// <![CDATA[
+		window.onload = function() {
+			var textsearch = document.getElementById('textsearch');
+			textsearch.onfocus = function() {
+				this.value = '';
+			}
+			textsearch.onblur = function() {
+				if(this.value == '') {
+					this.value = 'O que está procurando?';
+				}
+			}
+		}
+	// ]]>
+	</script>
 </html>

@@ -1,1 +1,51 @@
-
+<div id="showcase">
+	<p class="text">Há 65 anos realizamos um trabalho de dedicação às crianças e adolescentes menos favorecidos socialmente.</p>
+	<div class="collaborate">
+		<a href="#"><h2>Colabore</h2></a>
+		<p class="text1">A procura por vagas no Reino da Garotada de Poá é enorme. A fila de espera chega a 700 crianças e adolescentes, ou seja, <b>seria preciso dobrar a nossa capacidade</b> para quetodos possam ter acesso ao nosso atendimento.</p>
+		<p class="text2">Colabore e dê um futuro melhor para essas crianças:</p>
+		<a class="gocollaborate" href="index.php?r=site/colabore">EU QUERO COLABORAR!</a>
+	</div>
+</div>
+<div id="news">
+	<a href="#"><h2>Novidades (veja o que acontece no reino)</h2></a>
+	<?php $noticia_destaque = array_shift($ultimas_noticias); ?>
+	<div class="news1">
+		<div style="clear: both">
+		  <img class="zoo" src="css/images/reino_destaque.gif" width="127px" height="95px" alt="x" />
+		  <div style="float: left; width: 436px; margin-left: -30px; margin-top: 10px;">
+		    <h3><?php echo $noticia_destaque['titulo']; ?></h3>
+		    <p><?php echo $noticia_destaque['chamada']; ?></p>
+		  </div>
+		</div>
+		<a class="continue" href="index.php?r=novidades/novas/<?php echo $noticia_destaque['id']; ?>">Continue lendo...</a>
+	</div>
+	<?php foreach($ultimas_noticias as $n => $noticia): ?>
+	<div class="news <?php echo $n % 2 ? "impar" : "par"; ?>">
+		<span class="date"><?php echo strtoupper(strftime('%d %b', strtotime($noticia['data_criacao']))); ?></span>
+		<h4 class="title"><?php echo $noticia['titulo']; ?></h4>
+		<p class="text"><?php echo $noticia['chamada']; ?></p>
+		<a class="continue" href="index.php?r=novidades/novas/<?php echo $noticia['id']; ?>">Continue lendo...</a>
+	</div>
+	<?php endforeach; ?>
+</div>
+<div id="events">
+	<a href="#"><h2>Eventos (participe das atividades do Reino)</h2></a>
+	<?php foreach($ultimos_eventos as $evento): ?>
+	<div class="event">
+		<h4 class="title"><?php echo $evento['titulo']; ?></h4>
+		<span class="date">Dia <?php echo strftime('%e de %B', strtotime($evento['data'])); ?></span>
+		<p class="text"><?php echo $evento['evento']; ?></p>
+	</div>
+	<?php endforeach; ?>
+	<a class="goevents" href="index.php?r=novidades/eventos">Ver eventos anteriores</a>
+</div>
+<div id="newsletter">
+	<a href="#"><h2>Newsletter</h2></a>
+	<p class="text">Assine nossa newsletter para manter-se informado de tudo o que acontece no <b>Reino da Garotada.</b></p>
+	<p class="sign">Para assinar, informe seu e-mail:</p>
+	<div class="sendemail">
+		<input type="text" name="textemail" id="textemail"  class="textemail" />
+		<input type="image" name="newsletter" id="newsletter" src="css/images/buttonsend.png"  class="send" />
+	</div>
+</div>

@@ -1,4 +1,5 @@
 <?php
+	valida_acesso_admin();
 	
 	include 'includes/posts.inc';
 	
@@ -19,7 +20,7 @@
 		fill_form($form);
 		if(validate_form($form)) {
 			$post = form_to_simple_array($form);
-			$post['id_autor'] = 1;
+			$post['id_autor'] = $_SESSION['user_id'];
 			
 			if($post['id'] = save_post($post)) {
 				set_message('Post criado! <a href="?r=post/view/'. $post['id'] .'" >Clique aqui para visualizar</a>');

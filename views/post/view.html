@@ -14,9 +14,9 @@
 <p class=""><?php echo $post['corpo'] ?></p>
 <p class="classname">Postado as: <?php echo date('d/m/Y H:i', strtotime($post['data_criacao'])); ?></p>
 <div id="comentarios">
-	<h2>Comentarios</h2>
+	<h2>Comentários</h2>
 	<?php if(!$post['mostrar_comentarios']): ?>
-		<p>A exibiçao de comentarios nesse post esta desativada.</p>
+		<p>A exibição de comentarios nesse post esta desativada.</p>
 	<?php else: ?>
 		<?php if(empty($comentarios)): ?>
 			<p>Por enquanto, nao ha comentarios para esse post.</p>
@@ -36,7 +36,7 @@
 		<?php endif; ?>	
 	<?php endif; ?>
 	<?php if(!$post['habilitar_comentarios']): ?>
-		<p>Os comentarios estao desativados para esse post.</p>
+		<p>Os comentarios estão desativados para esse post.</p>
 	<?php else: ?>
 		<?php echo render_form($form_comentario); ?>
 	<?php endif; ?>

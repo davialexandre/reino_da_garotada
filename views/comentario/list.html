@@ -27,7 +27,7 @@
 						<td><?php echo date('d/m/Y H:i', strtotime($comentario['data_criacao'])); ?></td>
 						<td><a href="index.php?r=post/view/<?php echo $comentario['id_post']; ?>" target="_blank"><?php echo $comentario['titulo_post']; ?></a></td>
 						<td>
-							[<a href="index.php?r=comentario/delete/<?php echo $comentario['id']; ?>">apagar</a>]
+							[<a href="index.php?r=comentario/delete/<?php echo $comentario['id']; ?>" class="apagar">apagar</a>]
 						</td>
 					</tr>
 				<?php endforeach; ?>

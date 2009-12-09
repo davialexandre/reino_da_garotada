@@ -26,8 +26,19 @@ window.onload = function()
 		filebrowserFlashBrowseUrl : 'includes/ckfinder/ckfinder.html?Type=Flash',
 		filebrowserUploadUrl : 'includes/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
 		filebrowserImageUploadUrl : 'includes/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-		filebrowserFlashUploadUrl : 'includes/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+		filebrowserFlashUploadUrl : 'includes/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
+		on : {
+			instanceReady: function(ev) {
+				this.dataProcessor.writer.setRules( 'p',
+                {
+                    indent : false,
+                    breakBeforeOpen : false,
+                    breakAfterOpen : false,
+                    breakBeforeClose : false,
+                    breakAfterClose : false
+                });
+			}
+		}
 	});
-	
 };
 </script>

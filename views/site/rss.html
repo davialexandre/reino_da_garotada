@@ -1,0 +1,7 @@
+<?php foreach($posts as $post): ?>
+<item>
+	<title><?php echo $post['titulo']; ?></title>
+	<description><![CDATA[ <?php echo strip_tags($post['corpo']); ?>]]></description>
+	<link>http://reinodagarotada.org.br</link>
+</item>
+<?php endforeach; ?>

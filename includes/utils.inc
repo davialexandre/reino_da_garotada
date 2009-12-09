@@ -19,15 +19,18 @@
 	 *   </code>
 	 */
 	function resolve_rota() {
-		$rota = filter_var($_GET['r'], FILTER_SANITIZE_STRING);
+		$unfiltered_r = isset($_GET['r']) ? $_GET['r'] : '';
+		$rota = filter_var($unfiltered_r, FILTER_SANITIZE_STRING);
 		
 		$partes = explode('/', $rota);
 		$partes_rota = array();
 		
-		if(!$partes || empty($partes[0])) {
-			$partes = array('site', 'index');
+		if(empty($partes[1])) {
+			$partes[1] = 'index';
 		}
-		
+		if(empty($partes[0])) {
+			$partes[0] = 'site';
+		}
 		list($partes_rota['controller'], $partes_rota['action']) = $partes;
 		
 		$partes_rota['params'] = array_slice($partes, 2);
@@ -84,6 +87,16 @@
 		
 		$result = db_query($sql, array($permissao));
 		if(!$result->fetch(PDO::FETCH_ASSOC)) mostra_erro_http(403, 'Permissão Negada');
+	}
+	
+	/**
+	 * Verifica se o usuário logado tem acesso administrativo.
+	 * 
+	 */
+	function valida_acesso_admin() {
+		if(!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
+			mostra_erro_http(403, 'Permissão Negada');
+		}
 	}
 	
 	

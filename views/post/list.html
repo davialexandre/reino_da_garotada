@@ -19,7 +19,7 @@
 						<td><?php echo date('d/m/Y H:i', $post['ultima_atualizacao'] ? strtotime($post['ultima_atualizacao']) : strtotime($post['data_criacao'])); ?></td>
 						<td>
 							[<a href="index.php?r=post/edit/<?php echo $post['id']; ?>">editar</a>]
-							[<a href="index.php?r=post/delete/<?php echo $post['id']; ?>">apagar</a>]
+							[<a href="index.php?r=post/delete/<?php echo $post['id']; ?>" class="apagar">apagar</a>]
 						</td>
 					</tr>
 				<?php endforeach; ?>

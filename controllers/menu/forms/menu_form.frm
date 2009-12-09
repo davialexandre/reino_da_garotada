@@ -14,8 +14,7 @@
 				'type' => 'text',
 				'label' => 'Endereço: ',
 				'rules' => array(
-					array('type' => 'required', 'message' => 'Esse campo e obrigatorio'),
-					array('type' => 'regex', 'regex' => '/index\.php\?r=.+?\/.+?\/?/', 'message' => 'Este endereço nao esta em um formato valido'),
+					array('type' => 'regex', 'regex' => '/index\.php\?r=.+?(\/.+?)?\/?/', 'message' => 'Este endereço nao esta em um formato valido'),
 				)
 			),
 			'descricao' => array(

@@ -1,4 +1,6 @@
 <?php
+	valida_acesso_admin();
+	
 	if(isset($params[0])) {
 		db_query('DELETE FROM comentario WHERE id = ?', array($params[0]));
 		redireciona_para('comentario/list');

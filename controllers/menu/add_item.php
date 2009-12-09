@@ -1,4 +1,5 @@
 <?php
+	valida_acesso_admin();
 	include_once 'includes/menu.inc';
 	
 	$form = include_once 'forms/menu_form.frm';

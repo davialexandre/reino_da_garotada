@@ -7,29 +7,29 @@
 				'type' => 'text',
 				'label' => 'Seu nome: ',
 				'rules' => array(
-					array('type' => 'required', 'message' => 'Este campo e obrigatorio'),
+					array('type' => 'required', 'message' => 'Este campo é obrigatório'),
 				)
 			),
 			'email' => array(
 				'type' => 'text',
 				'label' => 'Seu e-mail: ',
 				'rules' => array(
-					array('type' => 'required', 'message' => 'Este campo e obrigatorio'),
-					array('type' => 'email', 'message' => 'Este nao e um e-mail valido'),
+					array('type' => 'required', 'message' => 'Este campo é obrigatório'),
+					array('type' => 'email', 'message' => 'Este não é um e-mail válido'),
 				)
 			),
 			'assunto' => array(
 				'type' => 'text',
 				'label' => 'Assunto da mensagem: ',
 				'rules' => array(
-					array('type' => 'required', 'message' => 'Este campo e obrigatorio'),
+					array('type' => 'required', 'message' => 'Este campo é obrigatório'),
 				)
 			),
 			'mensagem' => array(
 				'type' => 'textarea',
 				'label' => 'Mensagem: ',
 				'rules' => array(
-					array('type' => 'required', 'message' => 'Este campo e obrigatorio'),
+					array('type' => 'required', 'message' => 'Este campo é obrigatório'),
 				)
 			)
 		),
